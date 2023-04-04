@@ -10,18 +10,36 @@ package Books;
  */
 public class Books {
     
-    private final String id;
-    private String authorName;
+    private String id;
+    private String firstName;
+    private String lastName;
     private String bookTitle;
     private String genre;
     
-    public Books(String id){
+    public Books(String id, String firstName, String lastName, String bookTitle, String genre){
     
         this.id = id;
-        this.authorName = authorName;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.bookTitle = bookTitle;
         this.genre = genre;
     
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getAuthorName() {
+        return firstName + " " + lastName;
+    }
+
+    public String getBookTitle() {
+        return bookTitle;
+    }
+
+    public String getGenre() {
+        return genre;
     }
     
 }
