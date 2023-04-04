@@ -20,16 +20,9 @@ public class LibrarySystem {
      */
     public static void main(String[] args) {
         
-//        String myFileName = "MOCK_DATA.CSV";
-//        int capacity = 500;
-//        
-//        List<String> myFile = FileWriteAndRead.readFromFile(myFileName, capacity);
-//        System.out.println(myFile);// check if read function is working
-//        -----above are not using
-        
         InputUtils myInput = new InputUtils();
         String userInput = myInput.getUserText("Which book would you like to search?");
-        new Books.SearchBooks(userInput);//Search BookName By Bookname, 
+        new Books.SearchBooks(userInput);//Search Book Title, and shows up information (if Book Title exist) 
         
 //        SearchBooks findBooks = new SearchBooks();
 //        SearchBooks findBooks = new Books.SearchBooks();

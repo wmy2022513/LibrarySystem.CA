@@ -56,16 +56,16 @@ public class SearchBooks {
         }
         return books;
     }
-    public int linearSearch(ArrayList<Books> array, String targetName){
+    public String linearSearch(ArrayList<Books> array, String targetName){
         
         // Going one by one the elements in the array
         for(int i = 0; i < array.size(); i++){
             System.out.println("Testing: " + array.get(i).getBookTitle());
             // When the element is found, stop the loop and return the index
             if(array.get(i).getBookTitle().equals(targetName)){
-                return i;
+                return array.get(i).toString();
             }            
         }
-        return -1;
+        return "**********************\nNot found";
     }
 }
