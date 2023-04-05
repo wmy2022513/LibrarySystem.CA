@@ -39,17 +39,22 @@ public class SearchBooks {
         
         while (contentLine != null) {
                 
-                data = contentLine.split(","); // split each by each and place to array by order
+                data = contentLine.split(",(?=([^\"]|\"[^\"]*\")*$)"); //Use RegEx split each by each and place to array by order
+                //if only split by "," some book title contains "," will be omitted and cause error
                 id = data[0];
                 firstName = data[1];
                 lastName = data[2];
                 bookTitle = data[3];
+                //because we've been using RegEx to avoid some books title which contains "," 
+                //those books title were added quotes in the front and behind,int order to remove quotes by using below if-statement.
+                if(bookTitle.startsWith("\"") && bookTitle.endsWith("\"") ){ //check if some books title contain quotes("") 
+                    bookTitle = data[3].substring(1, data[3].length()-1); //remove the quotes prevent from searching errors
+                } 
                 genre = data[4];
 
                 books.add(new Books(id, firstName, lastName, bookTitle, genre));
                 contentLine = br.readLine();
-            }
-
+        }
         
         }catch(Exception e){
             Logger.getLogger(SearchBooks.class.getName()).log(Level.SEVERE, null, e);
