@@ -22,11 +22,13 @@ public class LibrarySystem {
         
         InputUtils myInput = new InputUtils();
         String userInput = myInput.getUserText("Which book would you like to search?");
-        new Books.SearchBooks(userInput);//Search Book Title, and shows up information (if Book Title exist) 
-        
-//        SearchBooks findBooks = new SearchBooks();
-//        SearchBooks findBooks = new Books.SearchBooks();
-//        findBooks.loadBooks().get(3).getId();
+//        new Books.SearchBooks(userInput);//Search Book Title, and shows up information (if Book Title exist) 
+
+        SearchBooks searchBooksTest = new SearchBooks();
+//        System.out.println(searchBooksTest.loadBooks()); //list all books details
+        System.out.println(searchBooksTest.linearSearch(searchBooksTest.loadBooks(), userInput)); // search a specific book by query
+//        searchBooksTest.linearSearch(searchBooksTest.loadBooks(), userInput);
+//        searchBooksTest.printallsort(searchBooksTest.loadBooks());
     }
     
 }

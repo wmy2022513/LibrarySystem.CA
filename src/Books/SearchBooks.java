@@ -16,10 +16,10 @@ import java.util.logging.Logger;
  */
 public class SearchBooks {
     
-    public SearchBooks(String userQuery){
+    public SearchBooks(){
         //Search BookTitle byId
         ArrayList<Books> books = loadBooks();
-        System.out.println(linearSearch(books, userQuery));
+//        System.out.println(linearSearch(books, userQuery));
     }
     
     public ArrayList<Books> loadBooks(){
@@ -46,7 +46,7 @@ public class SearchBooks {
                 lastName = data[2];
                 bookTitle = data[3];
                 //because we've been using RegEx to avoid some books title which contains "," 
-                //those books title were added quotes in the front and behind,int order to remove quotes by using below if-statement.
+                //those books title were added quotes in the front and behind,in order to remove quotes by using below if-statement.
                 if(bookTitle.startsWith("\"") && bookTitle.endsWith("\"") ){ //check if some books title contain quotes("") 
                     bookTitle = data[3].substring(1, data[3].length()-1); //remove the quotes prevent from searching errors
                 } 
