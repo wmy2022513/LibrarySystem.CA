@@ -16,9 +16,13 @@ import java.util.logging.Logger;
  */
 public class SearchBooks {
     
+    ArrayList<Books> books;
+    
     public SearchBooks(){
+        
+        this.books = loadBooks();
         //Search BookTitle byId
-        ArrayList<Books> books = loadBooks();
+//        ArrayList<Books> books = loadBooks();
 //        System.out.println(linearSearch(books, userQuery));
     }
     
@@ -28,6 +32,9 @@ public class SearchBooks {
         
         try{
         BufferedReader br = new BufferedReader(new FileReader("MOCK_DATA.CSV"));
+        String dummy = br.readLine(); 
+        // it's only a dummy, for hold the first line attributes(id,author_first_name,author_last_name,author_last_name),
+        //because we only want to deal with datas.
         String contentLine = br.readLine();
         
         String[] data;
@@ -73,4 +80,9 @@ public class SearchBooks {
         }
         return "**********************\nNot found";
     }
+
+    public ArrayList<Books> getBooks() {
+        return books;
+    }
+    
 }

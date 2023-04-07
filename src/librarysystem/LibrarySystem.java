@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package librarysystem;
+import Books.Books;
+import Books.BooksSorting;
 import Books.SearchBooks;
 import FileWriteAndRead.*;
 import inpututils.InputUtils;
@@ -20,15 +22,19 @@ public class LibrarySystem {
      */
     public static void main(String[] args) {
         
+        SearchBooks searchBooks = new SearchBooks();
+        ArrayList<Books> books = searchBooks.getBooks();
+        
         InputUtils myInput = new InputUtils();
         String userInput = myInput.getUserText("Which book would you like to search?");
-//        new Books.SearchBooks(userInput);//Search Book Title, and shows up information (if Book Title exist) 
 
-        SearchBooks searchBooksTest = new SearchBooks();
-//        System.out.println(searchBooksTest.loadBooks()); //list all books details
-        System.out.println(searchBooksTest.linearSearch(searchBooksTest.loadBooks(), userInput)); // search a specific book by query
-//        searchBooksTest.linearSearch(searchBooksTest.loadBooks(), userInput);
-//        searchBooksTest.printallsort(searchBooksTest.loadBooks());
+        System.out.println(searchBooks.linearSearch(books, userInput)); 
+        //Search Book Title, and shows up information (if Book Title exist) 
+        //-----1st function----
+        BooksSorting bs = new BooksSorting();
+        System.out.println(bs.bookSorting(books));
+        //-----2nd function --display by alphabetical order (sorting and implement Comparator
+        
     }
     
 }
