@@ -45,7 +45,7 @@ public class Borrowing {
 
     @Override
     public String toString() {
-        return "Borrowing{" + "borrow_ID=" + borrow_ID + ", student_ID=" + student_ID + ", bookTitle=" + bookTitle + ", book_ID=" + book_ID + ", borrowDate=" + borrowDate + ", dueDate=" + dueDate + ", returnDate=" + returnDate + '}' +"\n";
+        return "**********************\nborrow_ID: " + borrow_ID + "\nstudent_ID: " + student_ID + "\nbookTitle: " + bookTitle + "\nbook_ID: " + book_ID + "\nborrowDate: " + borrowDate + "\ndueDate: " + dueDate + "\nreturnDate: " + returnDate +"\n";
     }
     
     //belows are getters

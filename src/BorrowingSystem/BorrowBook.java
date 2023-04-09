@@ -47,9 +47,9 @@ public class BorrowBook {
 //        System.out.println("Due date: " + dueDate);
         
 
-        int student_ID = students.get(studentId).getId();
-        String bookTitle =  books.get(bookID).getBookTitle();
-        String book_ID = books.get(bookID).getId();
+        int student_ID = students.get(studentId-1).getId();
+        String bookTitle =  books.get(bookID-1).getBookTitle();
+        String book_ID = books.get(bookID-1).getId();
         String borrowDate = currentDate;
         String dueDate = dueForeturn;
         String returnDate = "N/A";
