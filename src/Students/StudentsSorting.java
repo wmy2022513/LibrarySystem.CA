@@ -31,6 +31,7 @@ public class StudentsSorting {
     //It is not String nor Integer, so it's not able to use Collections.sort, that's why implement Comparator
     public class StudentNameComparator implements Comparator<Students> {
         
+        @Override
         public int compare(Students s1, Students s2) {
             return s1.getStudentName().compareTo(s2.getStudentName());
         }
