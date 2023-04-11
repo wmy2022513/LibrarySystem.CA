@@ -1,6 +1,8 @@
 package BookQueue;
 
 import Books.Books;
+import BorrowingSystem.BookWaitingList;
+import BorrowingSystem.WaitingListFormat;
 
 
 public interface BookQueue {
@@ -11,14 +13,14 @@ public interface BookQueue {
      * @param newElement
      * @return false is capacity full
      */
-    public boolean Enqueue(Books newElement);
+    public boolean Enqueue(WaitingListFormat newElement);
 
     /**
      * Removes an element from the front of the queue
      *
      * @return null if queue is empty
      */
-    public Books Dequeue();
+    public WaitingListFormat Dequeue();
 
     /**
      * First element of the queue without removing it
@@ -54,6 +56,6 @@ public interface BookQueue {
      *
      * @return the head of this queue, or {@code null} if this queue is empty
      */
-    public Books peek();
+    public WaitingListFormat peek();
 
 }

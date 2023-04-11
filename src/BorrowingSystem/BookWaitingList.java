@@ -5,6 +5,7 @@
 package BorrowingSystem;
 
 import java.util.ArrayList;
+import BookQueue.*;
 
 /**
  *
@@ -12,36 +13,47 @@ import java.util.ArrayList;
  */
 public class BookWaitingList {
     
+    myBookQueue waitingList = new myBookQueue();
     
     
-    private String request_ID;
-    private int student_ID;
-    private String bookTitle;
-    private String book_ID;
-    private String requestDate;
-    
-    private static int currentRequestNumber = 2023000;
-    
-    public BookWaitingList(int student_ID, String bookTitle, String book_ID, String requestDate){
-        
-        ArrayList<Borrowing> borrow = new ArrayList<>();
-        int borrowID = 1;
-        
-        this.request_ID = generateRequestID(borrow, borrowID);
-        this.student_ID = student_ID;
-        this.bookTitle = bookTitle;
-        this.book_ID = book_ID;
-        this.requestDate = requestDate;
+    public BookWaitingList(){
     
     }
     
-    private String generateRequestID(ArrayList<Borrowing> borrow, int borrowID){
+    private String generateRequestID(ArrayList<Borrowing> borrow, int borrowIndex){
     
         int i = 1;
-        String requestId = borrow.get(borrowID).getBorrow_ID() +"-"+ i;
+        String requestId = borrow.get(borrowIndex).getBorrow_ID() +"-"+ i;
+        //return format : LIBW2023001-1
         i++;
         
         return requestId;
     }
+    
+    public myBookQueue generateWaitingList(ArrayList<Borrowing> borrows,int borrowIndex){
+        
+        
+        String request_ID = generateRequestID(borrows,borrowIndex-1);
+        int student_ID = borrows.get(borrowIndex-1).getStudent_ID();
+        String bookTitle = borrows.get(borrowIndex-1).getBookTitle();
+        String book_ID = borrows.get(borrowIndex-1).getBook_ID();
+        String requestDate = borrows.get(borrowIndex-1).getReturnDate();
+        
+        WaitingListFormat addToQueue = new WaitingListFormat(request_ID,student_ID,bookTitle,book_ID,requestDate);
+        
+        waitingList.Enqueue(addToQueue);
+        
+        return waitingList;
+    }
+
+    public myBookQueue getWaitingList() {
+        return waitingList;
+    }
+
+    @Override
+    public String toString() {
+        return "BookWaitingList{" + "waitingList=" + waitingList + '}';
+    }
+
     
 }

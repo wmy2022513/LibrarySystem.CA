@@ -2,6 +2,8 @@ package BookQueue;
 
 import Books.Books;
 import Books.SearchBooks;
+import BorrowingSystem.BookWaitingList;
+import BorrowingSystem.WaitingListFormat;
 import java.util.ArrayList;
 
 /*
@@ -16,7 +18,7 @@ import java.util.ArrayList;
 public class myBookQueue implements BookQueue{
     
     private int size;
-    private ArrayList<Books> data;
+    private ArrayList<WaitingListFormat> data;
     private int front;
     private int back;
     
@@ -31,7 +33,7 @@ public class myBookQueue implements BookQueue{
     }
 
     @Override
-    public boolean Enqueue(Books newElement) {
+    public boolean Enqueue(WaitingListFormat newElement) {
         
         
         if(front == -1){
@@ -48,7 +50,7 @@ public class myBookQueue implements BookQueue{
         
     }
     @Override
-    public Books Dequeue() {
+    public WaitingListFormat Dequeue() {
         
         if(data.isEmpty()){
             System.out.println("Queue is empty");
@@ -56,7 +58,7 @@ public class myBookQueue implements BookQueue{
         }
         
         
-        Books element = data.get(front);
+        WaitingListFormat element = data.get(front);
         
         data.remove(element);
         front++;
@@ -67,7 +69,7 @@ public class myBookQueue implements BookQueue{
     }
     
     @Override
-    public Books peek() {
+    public WaitingListFormat peek() {
         
         return data.get(front);
     }

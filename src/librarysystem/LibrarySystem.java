@@ -6,6 +6,7 @@ package librarysystem;
 import Books.Books;
 import Books.BooksSorting;
 import Books.SearchBooks;
+import BorrowingSystem.BookWaitingList;
 import BorrowingSystem.BorrowBook;
 import BorrowingSystem.Borrowing;
 import FileWriteAndRead.*;
@@ -69,7 +70,13 @@ public class LibrarySystem {
         BorrowBook test = new BorrowBook();
         test.borrowBooks(books, students, 5, 3);
         test.borrowBooks(books, students, 12, 5);
-        System.out.println(test.getBorrowing());
+        System.out.println(test.getBorrowing()); //list all borrowed book
+//        System.out.println(test.getBorrowing().get(0));//get a specific borrowed book
+        
+        //---6th function: testing waitinglist
+        BookWaitingList waitingTest = new BookWaitingList(); 
+        System.out.println(waitingTest.generateWaitingList(test.getBorrowing(), 1));
+        System.out.println(waitingTest.getWaitingList());
         
     }
     
