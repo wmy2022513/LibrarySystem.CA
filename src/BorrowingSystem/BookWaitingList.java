@@ -26,7 +26,7 @@ public class BookWaitingList {
         String requestId = borrow.get(borrowIndex).getBorrow_ID() +"-"+ i;
         //return format : LIBW2023001-1
         i++;
-        
+        //if there's a second person requesting this book as well
         return requestId;
     }
     
@@ -42,6 +42,8 @@ public class BookWaitingList {
         WaitingListFormat addToQueue = new WaitingListFormat(request_ID,student_ID,bookTitle,book_ID,requestDate);
         
         waitingList.Enqueue(addToQueue);
+        
+        borrowIndex++;
         
         return waitingList;
     }

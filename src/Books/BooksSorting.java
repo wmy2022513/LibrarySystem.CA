@@ -14,15 +14,30 @@ import java.util.Comparator;
  */
 public class BooksSorting {
     
-    public ArrayList<Books> bookSorting(ArrayList<Books> books){
-    
-        Collections.sort(books, new BookTitleComparator());
-        //In order to use Collections.sort, we have to implement Comparator firstly,as below method.
+    public ArrayList<Books> bookSorting(ArrayList<Books> books, int option){
         
-        for (Books b : books) {
-            System.out.println(b);
+        //In order to use Collections.sort, we have to implement Comparator firstly,as below method.
+        Collections.sort(books, new BookTitleComparator());//for sort book title
+        Collections.sort(books, new AuthorNameComparator());//for sort by author name
+        
+        ArrayList<Books> dummy = new ArrayList<>();// It's only a dummy, return an empty ArrayList, only for reminding user enter wrong number
+
+        switch(option){
+            case 1:
+                for (Books bTitle : books) {
+                    System.out.println(bTitle);
+                }
+                break;
+            case 2:
+                for (Books bAuthor:books){
+                    System.out.println(bAuthor);
+                }
+                break;
+            default:
+                System.out.println("Wrong option, only 1 or 2 will be matched");
+                return dummy;
+
         }
-    
     
         return books;
     }
@@ -38,4 +53,12 @@ public class BooksSorting {
         }
     }
 
+    public class AuthorNameComparator implements Comparator<Books>{
+
+        @Override
+        public int compare(Books b1, Books b2) {
+            return b1.getAuthorName().compareTo(b2.getAuthorName());
+        }
+    
+    }
 }

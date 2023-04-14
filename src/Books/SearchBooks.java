@@ -68,16 +68,32 @@ public class SearchBooks {
         }
         return books;
     }
-    public String linearSearch(ArrayList<Books> array, String targetName){
+    public String linearSearch(ArrayList<Books> array, String targetName, int option){
         
-        // Going one by one the elements in the array
-        for(int i = 0; i < array.size(); i++){
-            System.out.println("Testing: " + array.get(i).getBookTitle());
-            // When the element is found, stop the loop and return the index
-            if(array.get(i).getBookTitle().equals(targetName)){
-                return array.get(i).toString();
-            }            
+        switch (option) {
+            case 1:
+                // Search by BookTitle 
+                // Going one by one the elements in the array
+                for(int i = 0; i < array.size(); i++){
+                    System.out.println("Testing: " + array.get(i).getBookTitle());
+                    // When the element is found, stop the loop and return the index
+                    if(array.get(i).getBookTitle().equals(targetName)){
+                        return array.get(i).toString();
+                    }
+                }   break;
+            case 2:
+                //Search by Author's first name
+                for(int i = 0; i < array.size(); i++){
+                    System.out.println("Testing: " + array.get(i).getFirstName());
+                    // When the element is found, stop the loop and return the index
+                    if(array.get(i).getFirstName().equals(targetName)){
+                        return array.get(i).toString();
+                    }
+                }   break;
+            default:
+                return "Wrong option, only 1 or 2 will be matched";
         }
+        
         return "**********************\nNot found";
     }
 

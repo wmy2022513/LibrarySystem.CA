@@ -34,6 +34,10 @@ public class Books {
         return id;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
     public String getAuthorName() {
         return firstName + " " + lastName;
     }
