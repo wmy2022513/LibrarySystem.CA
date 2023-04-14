@@ -27,6 +27,10 @@ public class Students {
         return id;
     }
 
+    public String getfName() {
+        return fName;
+    }
+
     public String getStudentName() {
         return fName+ " "+sName;
     }

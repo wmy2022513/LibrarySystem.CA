@@ -90,7 +90,19 @@ public class SearchStudents {
         return -1;
 
     }
-
+public String linearSearchStudents(ArrayList<Students> array, String targetName){
+        // Search by Students first name
+        // Going one by one the elements in the array
+        for(int i = 0; i < array.size(); i++){
+            System.out.println("Testing: " + array.get(i).getfName());
+            // When the element is found, stop the loop and return the index
+            if(array.get(i).getfName().equalsIgnoreCase(targetName)){
+                return array.get(i).toString();
+            }
+        }
+        
+        return "**********************\nStudent Not found";
+    }
 
     public ArrayList<Students> getStudents() {
         return students;

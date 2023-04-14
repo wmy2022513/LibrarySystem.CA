@@ -42,7 +42,7 @@ public class LibrarySystem {
         
         System.out.println("*********only for testing, in case feel confusing with the above and below outputs");
         
-        BooksSorting bs = new BooksSorting();
+//        BooksSorting bs = new BooksSorting();
 //        System.out.println(bs.bookSorting(books,1)); //sorting by book title
         
 //        System.out.println(bs.bookSorting(books, 2));//sorting by author
@@ -52,22 +52,29 @@ public class LibrarySystem {
         System.out.println("*********only for testing, in case feel confusing with the above and below outputs");
         
         //-----------------student part
-//        SearchStudents searchStudents = new SearchStudents();
-//        ArrayList<Students> students = searchStudents.getStudents();
-        
+        SearchStudents searchStudents = new SearchStudents();
+        ArrayList<Students> students = searchStudents.getStudents();
+//        
 //        InputUtils myInput2 = new InputUtils();
-//        int searchInput = myInput2.getUserInt("Which student would you like to search? please enter student ID.");
-//        int idBinary = searchStudents.binarySearch(students, searchInput);
+//        int searchById = myInput2.getUserInt("Which student would you like to search? please enter student ID.");
+//        int idBinary = searchStudents.binarySearch(students, searchById);
 //        if(idBinary == -1){
 //            System.out.println("Student not Found");
 //        } else {
 //            System.out.println(students.get(idBinary));
 //        }
+//        
+//        String searchByName = myInput.getUserText("Which student would you like to search? please enter student name.");
+//        String nameLinear = searchStudents.linearSearchStudents(students, searchByName);
+//        System.out.println(nameLinear); //search students by name
+        
         //-----3rd function -- by using binary search----------
         System.out.println("*********only for testing, in case feel confusing with the above and below outputs");
         //--------------------------
-//        StudentsSorting sSorting = new StudentsSorting();
-//        System.out.println(sSorting.studentsSorting(students));
+        StudentsSorting sSorting = new StudentsSorting();
+        System.out.println(sSorting.studentsSorting(students)); //list student by alphabetical name order
+        //---------------
+        System.out.println(students);//list student by id
         //-----4th function --
         
         //---5th function: testing Borrow book function----
