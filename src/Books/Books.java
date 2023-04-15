@@ -11,14 +11,16 @@ package Books;
 public class Books {
     
     private String id;
+    private int bCode;
     private String firstName;
     private String lastName;
     private String bookTitle;
     private String genre;
     
-    public Books(String id, String firstName, String lastName, String bookTitle, String genre){
+    public Books(String id,int bCode, String firstName, String lastName, String bookTitle, String genre){
     
         this.id = id;
+        this.bCode=bCode;
         this.firstName = firstName;
         this.lastName = lastName;
         this.bookTitle = bookTitle;
@@ -28,10 +30,14 @@ public class Books {
 
     @Override
     public String toString(){
-        return "**********************\nBook ID:\n"+ this.id + "\nAuthor name: " + getAuthorName() + "\nBook Title: " + this.bookTitle + "\nGenre: " + this.genre + "\n**********************";
+        return "**********************\nBook ID:\n"+this.bCode+"\nBar Code: "+ this.id + "\nAuthor name: " + getAuthorName() + "\nBook Title: " + this.bookTitle + "\nGenre: " + this.genre + "\n**********************";
     }
     public String getId() {
         return id;
+    }   
+    
+    public int getBCode(){
+        return bCode;
     }
 
     public String getFirstName() {

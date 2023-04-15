@@ -32,7 +32,7 @@ public class SearchBooks {
         ArrayList<Books> books = new ArrayList<>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\esitb\\Downloads\\LibrarySystem.CA-Wei-Ming\\LibrarySystem.CA-Wei-Ming\\MOCK_DATA .csv"));
+            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\esitb\\Downloads\\MOCK_DATA.csv"));
             String dummy = br.readLine();
             // it's only a dummy, for hold the first line attributes(id,author_first_name,author_last_name,author_last_name),
             //because we only want to deal with datas.
@@ -40,27 +40,27 @@ public class SearchBooks {
 
             String[] data;
             String id;
-            String bCode;
+            int bCode;
             String firstName;
             String lastName;
             String bookTitle;
             String genre;
-
+            int i = 0;
             while (contentLine != null) {
 
                 data = contentLine.split(",(?=([^\"]|\"[^\"]*\")*$)"); //Use RegEx split each by each and place to array by order
                 //if only split by "," some book title contains "," will be omitted and cause error
                 id = data[0];
-                bCode = data[1];
-                firstName = data[2];
-                lastName = data[3];
-                bookTitle = data[4];
+                bCode = i++;
+                firstName = data[1];
+                lastName = data[2];
+                bookTitle = data[3];
                 //because we've been using RegEx to avoid some books title which contains "," 
                 //those books title were added quotes in the front and behind,in order to remove quotes by using below if-statement.
                 if (bookTitle.startsWith("\"") && bookTitle.endsWith("\"")) { //check if some books title contain quotes("") 
-                    bookTitle = data[4].substring(1, data[4].length() - 1); //remove the quotes prevent from searching errors
+                    bookTitle = data[3].substring(1, data[3].length() - 1); //remove the quotes prevent from searching errors
                 }
-                genre = data[5];
+                genre = data[4];
 
                 books.add(new Books(id, bCode, firstName, lastName, bookTitle, genre));
                 contentLine = br.readLine();

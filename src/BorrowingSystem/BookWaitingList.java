@@ -4,6 +4,8 @@
  */
 package BorrowingSystem;
 
+import Books.Borrowing;
+import Books.WaitingListFormat;
 import java.util.ArrayList;
 import BookQueue.*;
 

@@ -1,9 +1,9 @@
 package BookQueue;
 
 import Books.Books;
-import Books.SearchBooks;
+import BorrowingSystem.SearchBooks;
 import BorrowingSystem.BookWaitingList;
-import BorrowingSystem.WaitingListFormat;
+import Books.WaitingListFormat;
 import java.util.ArrayList;
 
 /*

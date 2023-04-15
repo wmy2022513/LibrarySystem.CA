@@ -4,13 +4,17 @@
  */
 package BorrowingSystem;
 
-import Books;
-import Students.Students;
+import Books.Borrowing;
+import Books.WaitingListFormat;
+import BookQueue.myBookQueue;
+import Books.Books;
+import Books.Students;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Set;
 
 /**
  *
@@ -142,52 +146,45 @@ public class BorrowBook {
     }
 
     /*
-    ArrayList<Borrowing> borrowing = new ArrayList<>();
-    
-    public BorrowBook() {
-        
+    public void keepId(ArrayList<Books> books,ArrayList<Students> students){
+        int[] id = null;
+        for (int i = 0; i < books.size(); i++) {
+            id[i]=books.get(i).getId();
+        }
     }
-     
-    
-    public void borrowBooks(ArrayList<Books> books, ArrayList<Students> students,int studentId,int bookIndex){
-    
-//        ArrayList<Borrowing> borrowing = new ArrayList<>();
-        
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        //Define date format
-        String currentDate = sdf.format(new Date());
-        //get current date time with Date()
-//        System.out.println("Current date: "+currentDate);
-        
-        Calendar cal = Calendar.getInstance();  
-            try{  
-               cal.setTime(sdf.parse(currentDate));  
-            }catch(ParseException e){  
-                e.printStackTrace();  
-             }  
-             
-        // use add() method to add the days to the given date  
-        cal.add(Calendar.DAY_OF_MONTH, 7);  
-        String dueForeturn = sdf.format(cal.getTime());  //require to return book in 7 days
-//        System.out.println("Due date: " + dueDate);
-        
-        int student_ID = students.get(studentId-1).getId();
-        String bookTitle =  books.get(bookIndex-1).getBookTitle();
-        String book_ID = books.get(bookIndex-1).getId();
-        String borrowDate = currentDate;
-        String dueDate = dueForeturn;
-        String returnDate = "N/A";
-        
-        //check if the book has been borrowed, if yes ==> add into waiting list. if not add into borrowing(list)
-        
-        borrowing.add(new Borrowing(student_ID,bookTitle, book_ID, borrowDate, dueDate, returnDate ));
-        
+     */
+    public void printArray(int[] array) {
+
+        String toPrint = "[ ";
+        for (int i = 0; i < array.length; i++) {
+            toPrint += array[i] + " ";
+
+        }
+        toPrint += "]";
+        System.out.println(toPrint);
 
     }
 
-    public ArrayList<Borrowing> getBorrowing() {
-        return borrowing;
+    //For array
+    public void bubbleSort(ArrayList<Students> students) {
+        System.out.println("-----------");
+        System.out.println("--Bubble Sort starting--");
+
+        for (int i = 0; i < students.size(); i++) {
+            for (int j = 0; j < students.size() - 1; j++) {
+                int n = students.get(j).getId();
+                int m = students.get((j + 1)).getId();
+                if (n > m) {
+                    String tmp = students.get(j).toString();//save the value of array[j] in the temp
+                    students.set(j, students.get(j + 1));//change the value of array[j] for 
+                    students.set(i + 1, Students.class.cast(tmp));//save the value of temp into array[j+1]
+                }
+            }
+        }
+
+        System.out.println("--Array Sorted--");
+        System.out.println("-----------");
+
     }
-    
-*/
+
 }
