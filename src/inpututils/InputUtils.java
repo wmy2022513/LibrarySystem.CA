@@ -31,11 +31,7 @@ public class InputUtils {
         
             userInput = myKB.nextLine().trim(); // get input
         
-//            if (userInput.matches("[a-zA-Z ]+")){
-//                //this is valid input
-//                valid=true;
-//            }
-            if (!userInput.isEmpty()){ // if it has content
+            if (userInput.matches("[a-zA-Z ]+")){
                 //this is valid input
                 valid=true;
             }
@@ -49,7 +45,43 @@ public class InputUtils {
        return userInput;
  
     }
-    
+        /**
+     * Prompt user to enter an integer within a given range - if invalid keep asking
+     * @param prompt the prompt or question to ask user
+     * @param minValue the lowest value allowed
+     * @param maxValue the largest value allowed
+     * @return valid user input as an int
+     * 
+     */
+    public int getUserInt( int minValue, int maxValue){ 
+        // modified ,remove prompt,do-loop changed to while-loop, add if-codition        
+        Scanner myKB = new Scanner(System.in);
+        int userInput=0;    //initialized variable
+        boolean valid = false;
+
+        while((!valid) || (userInput <minValue) || (userInput >maxValue)){        
+
+            try{
+                
+                userInput = myKB.nextInt(); //get a int
+                //add below condition,mainly for rugby club menu
+                if((userInput <minValue) || (userInput >maxValue)){
+                    //prompt user , must enter a number in the range
+                    System.out.println("The number must be between " + minValue + " and " + maxValue);
+                    
+                }else{
+                     valid = true;
+                }
+            }catch (Exception e){
+                //error -- must not have entered numbers
+                System.out.println("Invalid -- you must enter an integer only!");
+                myKB.nextLine(); //reads enter from keyboard to prevent infinite loop
+                
+            }
+        }
+        
+     return userInput;
+  }
     /**
      * Prompt user to enter an integer - if invalid keep asking
      * @param prompt the prompt or question to ask user

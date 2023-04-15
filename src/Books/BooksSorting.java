@@ -17,18 +17,18 @@ public class BooksSorting {
     public ArrayList<Books> bookSorting(ArrayList<Books> books, int option){
         
         //In order to use Collections.sort, we have to implement Comparator firstly,as below method.
-        Collections.sort(books, new BookTitleComparator());//for sort book title
-        Collections.sort(books, new AuthorNameComparator());//for sort by author name
-        
+
         ArrayList<Books> dummy = new ArrayList<>();// It's only a dummy, return an empty ArrayList, only for reminding user enter wrong number
 
         switch(option){
             case 1:
+                Collections.sort(books, new BookTitleComparator());//for sort book title
                 for (Books bTitle : books) {
                     System.out.println(bTitle);
                 }
                 break;
             case 2:
+                Collections.sort(books, new AuthorNameComparator());//for sort by author name
                 for (Books bAuthor:books){
                     System.out.println(bAuthor);
                 }

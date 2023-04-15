@@ -84,7 +84,7 @@ public class SearchStudents {
             else {
                 end = mid - 1;
             }
-
+            System.out.println("Searching student id:" + mid + "...");
         }
 
         return -1;
