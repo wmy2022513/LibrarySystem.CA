@@ -125,18 +125,36 @@ public class BorrowBook {
         return borrowing;
     }
 
-    public int removeBook(ArrayList<Books> books, ArrayList<Students> students, int bookId) {
+    public int removeBook(ArrayList<Books> books, ArrayList<Students> students,int bookIndex) {
+        
+        String book_ID = books.get(bookIndex - 1).getId();
+        
+        if(borrowing.isEmpty()){
+            System.out.println("This list is empty");
+        }
 
         for (int i = 0; i < borrowing.size(); i++) {
-            System.out.println("Testing:" + borrowing.get(i).getBookTitle());
-                
-                System.out.println("The book has been returned");
-                System.out.println("//////////////////////////////////////////////");
-                System.out.println("Next student :" + this.borrowing.get(i).getWaitingList().peek());
-                borrowing.remove(i);
+            
+                if(borrowing.get(i).getBook_ID().equals(book_ID)){
+                    
+                    System.out.println("Testing:" + borrowing.get(i).getBookTitle());
+                    
+//                    if(borrowing.get(i).getWaitingList().isEmpty()){
+                        System.out.println("The book has been returned");
+                        System.out.println("//////////////////////////////////////////////");
+                        
+                        if(borrowing.get(i).getWaitingList() != null){
+                            System.out.println("Next student :" + borrowing.get(i).getWaitingList().peek());
+                            System.out.println("Return successfully");
+                            borrowing.remove(i);
+                        } else {
+                            borrowing.remove(i);
+                            System.out.println("Return successfully");
+                        }
 
-                //We need to collect all the methods together.Because there is no access to each other.
-//            }
+                } else {
+                    System.out.println("Book not founded");
+                }
         }
 
         return -1;

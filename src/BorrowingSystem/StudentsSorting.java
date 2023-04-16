@@ -6,36 +6,75 @@ package BorrowingSystem;
 
 import Books.Students;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 /**
  *
  * @author mikeyang
  */
 public class StudentsSorting {
-        public ArrayList<Students> studentsSorting(ArrayList<Students> students){
+        public ArrayList<Students> studentsSorting(ArrayList<Students> students, int option){
     
-        Collections.sort(students, new StudentNameComparator());
-        //In order to use Collections.sort, we have to implement Comparator firstly,as below method.
-        
-        for (Students s : students) {
-            System.out.println(s);
-        }
-    
-    
+            switch(option){
+                case 1:
+                    bubbleSortName(students);
+                    for (Students s : students) {
+                        System.out.println(s);
+                    }
+                    break;
+                case 2:
+                    bubbleSortId(students);
+                    for (Students s : students) {
+                        System.out.println(s);
+                    }
+                    break;
+                }
+
         return students;
     }
-    
-    
-    //Compare book titles by implement Comparator, because this data type is "BookTest"
-    //It is not String nor Integer, so it's not able to use Collections.sort, that's why implement Comparator
-    public class StudentNameComparator implements Comparator<Students> {
-        
-        @Override
-        public int compare(Students s1, Students s2) {
-            return s1.getStudentName().compareTo(s2.getStudentName());
+        public void bubbleSortId(ArrayList<Students> students) {
+        System.out.println("-----------");
+        System.out.println("--Bubble Sort starting--");
+
+        for (int i = 0; i < students.size(); i++) {
+            for (int j = 0; j < students.size() - 1; j++) {
+                int n = students.get(j).getId();
+                int m = students.get((j + 1)).getId();
+                if (n > m) {
+                    Students tmp = students.get(j);//save the value of array[j] in the temp
+                    students.set(j, students.get(j + 1));//change the value of array[j] for 
+//                    students.set(j + 1, Students.class.cast(tmp));//save the value of temp into array[j+1]
+                    students.set(j + 1, tmp);//fix data type casting error
+                }
+            }
         }
+
+        System.out.println("--Array Sorted--");
+        System.out.println("-----------");
+
+    }
+        public void bubbleSortName(ArrayList<Students> students) {
+        System.out.println("-----------");
+        System.out.println("--Bubble Sort starting--");
+        String a;
+        String b;
+        Students c;
+        Students d;
+
+        for (int i = 0; i < students.size(); i++) {
+            for (int j = 0; j < students.size() - 1; j++) {
+                a = students.get(j).getStudentName();
+                b = students.get(j + 1).getStudentName();
+
+                if (a.compareTo(b) > 0) {
+                    Students tmp = students.get(j);//save the value of array[j] in the temp
+                    students.set(j, students.get(j + 1));//change the value of array[j] for 
+                    students.set(j + 1, tmp);//save the value of temp into array[j+1]
+                }
+            }
+        }
+
+        System.out.println("--Array Sorted--");
+        System.out.println("-----------");
     }
 
 }

@@ -151,10 +151,10 @@ public class LibrarySystem {
                         System.out.println("1.list all students by name alphabetical order\n2.list all students by ID alphabetical order\n3.Menu");
                         switch(myInput.getUserInt(1,3)){
                             case 1:
-                                System.out.println(sSorting.studentsSorting(students)); //list student by alphabetical name order
+                                System.out.println(sSorting.studentsSorting(students,1)); //list student by alphabetical name order
                                 break;
                             case 2:
-                                System.out.println(students);//list student by id
+                                System.out.println(sSorting.studentsSorting(students, 2));//list student by id
                                 //don't forget to modified this part
                                 break;
                             case 3:

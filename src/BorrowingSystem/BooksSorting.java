@@ -6,8 +6,6 @@ package BorrowingSystem;
 
 import Books.Books;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 /**
  *
@@ -23,13 +21,13 @@ public class BooksSorting {
 
         switch(option){
             case 1:
-                Collections.sort(books, new BookTitleComparator());//for sort book title
+                bubbleSortBookTitle(books);
                 for (Books bTitle : books) {
                     System.out.println(bTitle);
                 }
                 break;
             case 2:
-                Collections.sort(books, new AuthorNameComparator());//for sort by author name
+                bubbleSortBookAuthorName(books);
                 for (Books bAuthor:books){
                     System.out.println(bAuthor);
                 }
@@ -42,24 +40,48 @@ public class BooksSorting {
     
         return books;
     }
-    
-    
-    //Compare book titles by implement Comparator, because this data type is "BookTest"
-    //It is not String nor Integer, so it's not able to use Collections.sort, that's why implement Comparator
-    public class BookTitleComparator implements Comparator<Books> {
-        
-        @Override
-        public int compare(Books b1, Books b2) {
-            return b1.getBookTitle().compareTo(b2.getBookTitle());
-        }
-    }
+    public void bubbleSortBookTitle(ArrayList<Books> books) {
+        System.out.println("-----------");
+        System.out.println("--Bubble Sort starting--");
+        String a;
+        String b;
 
-    public class AuthorNameComparator implements Comparator<Books>{
 
-        @Override
-        public int compare(Books b1, Books b2) {
-            return b1.getAuthorName().compareTo(b2.getAuthorName());
+        for (int i = 0; i < books.size(); i++) {
+            for (int j = 0; j < books.size() - 1; j++) {
+                a = books.get(j).getBookTitle();
+                b = books.get(j + 1).getBookTitle();
+
+                if (a.compareTo(b) > 0) {
+                    Books tmp = books.get(j);//save the value of array[j] in the temp
+                    books.set(j, books.get(j + 1));//change the value of array[j] for 
+                    books.set(j + 1, tmp);//save the value of temp into array[j+1]
+                }
+            }
         }
-    
+
+        System.out.println("--BookTitle Sorted--");
+        System.out.println("-----------");
     }
+    public void bubbleSortBookAuthorName(ArrayList<Books> books) {
+        System.out.println("-----------");
+        System.out.println("--Bubble Sort starting--");
+
+        for (int i = 0; i < books.size(); i++) {
+            for (int j = 0; j < books.size() - 1; j++) {
+                String n = books.get(j).getAuthorName();
+                String m = books.get((j + 1)).getAuthorName();
+                if (n.compareTo(m)>0) {
+                    Books tmp = books.get(j);//save the value of array[j] in the temp
+                    books.set(j, books.get(j + 1));//change the value of array[j] for 
+                    books.set(j + 1, tmp);//save the value of temp into array[j+1]
+                }
+            }
+        }
+
+        System.out.println("--AuthorName Sorted--");
+        System.out.println("-----------");
+
+    }
+    
 }
