@@ -100,7 +100,17 @@ public class BorrowBook {
         return borrowing;
     }
 
-    public int removeBook(ArrayList<Books> books, ArrayList<Students> students, String bookId, int bookIndex) {
+    /**
+     * Remove a book from borrowing list and show who is next from waiting list
+     *
+     * @param books -- is an object from Books class
+     * @param students -- is an obejct from Students class
+     * @param bookId -- is a parameter which is attribute of books
+     * @param bookIndex -- is a parameter which is attribute of books
+     * @return -- as an integer to make sure the function is done succesfully
+     */
+    public int removeBook(ArrayList<Books> books, ArrayList<Students> students, String bookId, int bookIndex, int studentId) {
+        //Questions Does bookındex is necessary or not ?
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM--yyyy");
 
         String currentDate = sdf.format(new Date());
@@ -118,16 +128,11 @@ public class BorrowBook {
 
         for (int i = 0; i < borrowing.size(); i++) {
             System.out.println("Testing:" + borrowing.get(i).getBook_ID());
-            if (borrowing.get(i).getBook_ID().equals(bookId)) {
-
+            if (borrowing.get(i).getBook_ID().equals(bookId) && borrowing.get(i).getStudent_ID() == (studentId)) {
                 borrowing.remove(i);
                 System.out.println("Books is returned");
                 System.out.println("//////////////////////////////////////////////");
                 System.out.println("Next student :" + this.getWaitingList().peek());
-
-                //We need to manage that parts with bookId otherwise we are gonna fucked up.
-                //Bookıd for example when we need to show waitinglist studentId is useless
-                //We need to collect all the methods together.Because there is no access to each other.
             }
         }
 
@@ -145,44 +150,30 @@ public class BorrowBook {
         }
     }
 
-    /*
-    public void keepId(ArrayList<Books> books,ArrayList<Students> students){
-        int[] id = null;
-        for (int i = 0; i < books.size(); i++) {
-            id[i]=books.get(i).getId();
-        }
-    }
-     */
-    public void printArray(int[] array) {
-
-        String toPrint = "[ ";
-        for (int i = 0; i < array.length; i++) {
-            toPrint += array[i] + " ";
-
-        }
-        toPrint += "]";
-        System.out.println(toPrint);
-
-    }
-
-    //For Students
     /**
-     * This method is gonna sort the students by Id.
+     * *
+     * We are sendind to array to show the all elements in the array
      *
-     * @param students
+     * @param array
+     */
+    //Sorting Students by Id
+    /**
+     * Sort the students by Id.
+     *
+     * @param students is an object which is belongs to ArrayList<Students>
      */
     public void bubbleSortId(ArrayList<Students> students) {
         System.out.println("-----------");
-        System.out.println("--Bubble Sort starting--");
+        System.out.println("--Bubble Sort for Students--");
 
         for (int i = 0; i < students.size(); i++) {
             for (int j = 0; j < students.size() - 1; j++) {
                 int n = students.get(j).getId();
                 int m = students.get((j + 1)).getId();
                 if (n > m) {
-                    String tmp = students.get(j).toString();//save the value of array[j] in the temp
-                    students.set(j, students.get(j + 1));//change the value of array[j] for 
-                    students.set(j + 1, Students.class.cast(tmp));//save the value of temp into array[j+1]
+                    Students tmp = students.get(j);//save the value of students.get(j) in the temp
+                    students.set(j, students.get(j + 1));//change the value of students.get(j) for sorting
+                    students.set(j + 1, tmp);//save the value of temp into students.get(j+1)
                 }
             }
         }
@@ -192,14 +183,17 @@ public class BorrowBook {
 
     }
 
-    //Sorting For StudentsName
+    //Sorting Students by Student Name
+    /**
+     * Sort the students by Name
+     *
+     * @param students is an object which is belongs to ArrayList<Students>
+     */
     public void bubbleSortName(ArrayList<Students> students) {
         System.out.println("-----------");
-        System.out.println("--Bubble Sort starting--");
+        System.out.println("--Bubble Sort for Students--");
         String a;
         String b;
-        Students c;
-        Students d;
 
         for (int i = 0; i < students.size(); i++) {
             for (int j = 0; j < students.size() - 1; j++) {
@@ -207,9 +201,9 @@ public class BorrowBook {
                 b = students.get(j + 1).getStudentName();
 
                 if (a.compareTo(b) > 0) {
-                    Students tmp = students.get(j);//save the value of array[j] in the temp
-                    students.set(j, students.get(j + 1));//change the value of array[j] for 
-                    students.set(j + 1, tmp);//save the value of temp into array[j+1]
+                    Students tmp = students.get(j);//save the value of students.get(j) in the temp
+                    students.set(j, students.get(j + 1));//change the value of students.get(j) for sorting 
+                    students.set(j + 1, tmp);//save the value of temp into students.get(j+1)
                 }
             }
         }
@@ -217,25 +211,25 @@ public class BorrowBook {
         System.out.println("--Array Sorted--");
         System.out.println("-----------");
     }
-    
-    //For Students
+
+    //Sorting Books by Autohor Name
     /**
-     * This method is gonna sort the students by Id.
+     * Sort the books by Author Name.
      *
-     * @param books
+     * @param books is an object which is belongs to ArrayList<Books>
      */
     public void bubbleSortBookAuthorName(ArrayList<Books> books) {
         System.out.println("-----------");
-        System.out.println("--Bubble Sort starting--");
+        System.out.println("--Bubble Sort for Books--");
 
         for (int i = 0; i < books.size(); i++) {
             for (int j = 0; j < books.size() - 1; j++) {
                 String n = books.get(j).getAuthorName();
                 String m = books.get((j + 1)).getAuthorName();
-                if (n.compareTo(m)>0) {
-                    Books tmp = books.get(j);//save the value of array[j] in the temp
-                    books.set(j, books.get(j + 1));//change the value of array[j] for 
-                    books.set(j + 1, tmp);//save the value of temp into array[j+1]
+                if (n.compareTo(m) > 0) {
+                    Books tmp = books.get(j);//save the value of students.get(j) in the temp
+                    books.set(j, books.get(j + 1));//change the value of students.get(j) for sorting
+                    books.set(j + 1, tmp);//save the value of temp into students.get(j+1)
                 }
             }
         }
@@ -245,10 +239,15 @@ public class BorrowBook {
 
     }
 
-    //Sorting For StudentsName
+    //Sorting Books by Name
+    /**
+     * Sort the books by BookName
+     *
+     * @param books is an object which is belongs to ArrayList<Books>
+     */
     public void bubbleSortBookName(ArrayList<Books> books) {
         System.out.println("-----------");
-        System.out.println("--Bubble Sort starting--");
+        System.out.println("--Bubble Sort for Books--");
         String a;
         String b;
         Students c;
@@ -260,9 +259,9 @@ public class BorrowBook {
                 b = books.get(j + 1).getBookTitle();
 
                 if (a.compareTo(b) > 0) {
-                    Books tmp = books.get(j);//save the value of array[j] in the temp
-                    books.set(j, books.get(j + 1));//change the value of array[j] for 
-                    books.set(j + 1, tmp);//save the value of temp into array[j+1]
+                    Books tmp = books.get(j);//save the value of students.get(j) in the temp
+                    books.set(j, books.get(j + 1));//change the value of students.get(j) for sorting
+                    books.set(j + 1, tmp);//save the value of temp into students.get(j+1)
                 }
             }
         }
@@ -270,6 +269,5 @@ public class BorrowBook {
         System.out.println("--Array Sorted--");
         System.out.println("-----------");
     }
-
 
 }
