@@ -7,6 +7,7 @@ package FileWriteAndRead;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -67,6 +68,18 @@ public class FileWriteAndRead {
         }catch (Exception e) {
             
             System.out.println("Unable to write to file: " + filename);
+        }
+    }
+    public static void clearFile(String filename){ 
+        
+        try{
+            FileWriter fw = new FileWriter(filename, false);
+            PrintWriter pw = new PrintWriter(fw, false);
+            pw.flush();
+            pw.close();
+            fw.close();
+        }catch(Exception e){
+            System.out.println("Exception have been caught");
         }
     }
 }

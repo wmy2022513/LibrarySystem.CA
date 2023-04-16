@@ -15,6 +15,7 @@ public class Borrowing {
     private String borrow_ID;
     private int student_ID;
     private String bookTitle;
+    private int bCode;
     private String book_ID;
     private String borrowDate;
     private String dueDate;
@@ -22,12 +23,13 @@ public class Borrowing {
     
     private static int currentBorrowNumber = 2023000;
     
-    public Borrowing(int student_ID, String bookTitle, String book_ID, String borrowDate, String dueDate, String returnDate){
+    public Borrowing(int student_ID, String bookTitle,int bCode, String book_ID, String borrowDate, String dueDate, String returnDate){
     
         this.borrow_ID = generateBorrowID();
         this.student_ID = student_ID;
         this.bookTitle = bookTitle;
         this.book_ID = book_ID;
+        this.bCode = bCode;
         this.borrowDate = borrowDate;
         this.dueDate = dueDate;
         this.returnDate = returnDate;
@@ -45,7 +47,7 @@ public class Borrowing {
 
     @Override
     public String toString() {
-        return "**********************\nborrow_ID: " + borrow_ID + "\nstudent_ID: " + student_ID + "\nbookTitle: " + bookTitle + "\nbook_ID: " + book_ID + "\nborrowDate: " + borrowDate + "\ndueDate: " + dueDate + "\nreturnDate: " + returnDate +"\n";
+        return "**********************\nborrow_ID: " + borrow_ID + "\nstudent_ID: " + student_ID + "\nbook ID: "+bCode+"\nbookTitle: " + bookTitle + "\nbCode: " + book_ID + "\nborrowDate: " + borrowDate + "\ndueDate: " + dueDate + "\nreturnDate: " + returnDate +"\n";
     }
     
     //belows are getters

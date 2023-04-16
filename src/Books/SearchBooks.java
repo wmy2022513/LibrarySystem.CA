@@ -39,16 +39,19 @@ public class SearchBooks {
         
         String[] data;
         String id;
+        int bCode;
         String firstName;
         String lastName;
         String bookTitle;
         String genre;
+        int i=0;
         
         while (contentLine != null) {
                 
                 data = contentLine.split(",(?=([^\"]|\"[^\"]*\")*$)"); //Use RegEx split each by each and place to array by order
                 //if only split by "," some book title contains "," will be omitted and cause error
                 id = data[0];
+                bCode = i++;
                 firstName = data[1];
                 lastName = data[2];
                 bookTitle = data[3];
@@ -59,7 +62,7 @@ public class SearchBooks {
                 } 
                 genre = data[4];
 
-                books.add(new Books(id, firstName, lastName, bookTitle, genre));
+                books.add(new Books(id ,bCode , firstName, lastName, bookTitle, genre));
                 contentLine = br.readLine();
         }
         

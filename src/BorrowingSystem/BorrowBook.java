@@ -4,9 +4,10 @@
  */
 package BorrowingSystem;
 
+import Books.WaitingListFormat;
 import BookQueue.myBookQueue;
 import Books.Books;
-import Students.Students;
+import Books.Students;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class BorrowBook {
 
     public myBookQueue generateWaitingList(ArrayList<Borrowing> borrows, int borrowIndex) {
 
+
         String request_ID = generateRequestID(borrows, borrowIndex - 1);
         int student_ID = borrows.get(borrowIndex - 1).getStudent_ID();
         String bookTitle = borrows.get(borrowIndex - 1).getBookTitle();
@@ -60,14 +62,14 @@ public class BorrowBook {
         return "BookWaitingList{" + "waitingList=" + waitingList + '}';
     }
 
-    public void borrowBooks(ArrayList<Books> books, ArrayList<Students> students, int studentId, int bookIndex) {
+    public ArrayList<Borrowing> borrowBooks(ArrayList<Books> books, ArrayList<Students> students, int studentId, int bookIndex) {
 
-//        ArrayList<Borrowing> borrowing = new ArrayList<>();
+
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         //Define date format
         String currentDate = sdf.format(new Date());
         //get current date time with Date()
-//        System.out.println("Current date: "+currentDate);
+
 
         Calendar cal = Calendar.getInstance();
         try {
@@ -83,14 +85,24 @@ public class BorrowBook {
 
         int student_ID = students.get(studentId - 1).getId();
         String bookTitle = books.get(bookIndex - 1).getBookTitle();
-        String book_ID = books.get(bookIndex - 1).getId();
+        int bCode = books.get(bookIndex).getbCode();//bcode already defined start from 1 so don't need to minus one
+        String book_ID = books.get(bookIndex-1).getId();
         String borrowDate = currentDate;
         String dueDate = dueForeturn;
         String returnDate = "N/A";
 
-        //check if the book has been borrowed, if yes ==> add into waiting list. if not add into borrowing(list)
-        borrowing.add(new Borrowing(student_ID, bookTitle, book_ID, borrowDate, dueDate, returnDate));
+            for(int i=0;i<borrowing.size();i++){
+                if(borrowing.get(i).getBook_ID().equals(book_ID)){
+                    System.out.println("This book has been borrowed");
 
+                    return borrowing;
+                } 
+            }
+            //check if the book has been borrowed, if yes ==> return directly don't add anything, if not add into borrowing(list)
+            borrowing.add(new Borrowing(student_ID, bookTitle,bCode, book_ID, borrowDate, dueDate, returnDate));
+            System.out.println("Successfully borrowed");
+            return borrowing;
+//        }
     }
 
     public ArrayList<Borrowing> getBorrowing() {

@@ -4,15 +4,15 @@
  */
 package librarysystem;
 import Books.Books;
-import Books.BooksSorting;
+import BorrowingSystem.BooksSorting;
 import Books.SearchBooks;
-import BorrowingSystem.BookWaitingList;
+//import BorrowingSystem.BookWaitingList;
 import BorrowingSystem.BorrowBook;
 import BorrowingSystem.Borrowing;
 import FileWriteAndRead.*;
-import Students.SearchStudents;
-import Students.Students;
-import Students.StudentsSorting;
+import BorrowingSystem.SearchStudents;
+import Books.Students;
+import BorrowingSystem.StudentsSorting;
 import inpututils.InputUtils;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +40,7 @@ public class LibrarySystem {
         boolean listBooksExit = false;
         boolean searchStudentExit = false;
         boolean listStudentExit = false;
+        boolean borrowBookExit = false;
         
         while(!exit){
         
@@ -161,6 +162,49 @@ public class LibrarySystem {
                     
                     listStudentExit = false;
                     break;
+                case 6:
+                    //---5th function: testing Borrow book function----
+                    BorrowBook borrowBook = new BorrowBook();
+                    FileWriteAndRead.clearFile("borrow_list"); //clear file data every time before execute
+                    while(!borrowBookExit){
+                        System.out.println("Would you like to borrow a book or print out borrowing list");
+                        System.out.println("1.Borrow a book\n2.Print out borrowing list\n3.Menu");
+
+                        switch(myInput.getUserInt(1,3)){
+                            case 1:
+                                System.out.println("which student wants to borrow a book? Please enter student ID");
+                                int studentId = myInput.getUserInt(1,5000);
+                                System.out.println("which book would you like to borrow? Please enter book ID");
+                                int bookId = myInput.getUserInt(1,500);
+                                borrowBook.borrowBooks(books, students, studentId, bookId);
+                                break;
+                            case 2:
+                                System.out.println(borrowBook.getBorrowing());
+                                break;
+                            case 3:    
+                                borrowBookExit = true;
+                                break;
+                        }
+                    }
+                    //store data to file after finished book register
+                    FileWriteAndRead.writeToFile("borrow_list", borrowBook.getBorrowing().toString());//store into borrow_list.txt file
+                    borrowBookExit = false;
+                    break;
+//                case 7:
+//                    BorrowBook bsw = new BorrowBook();
+//                    bsw.generateWaitingList(bsw.getBorrowing(), bookId);
+
+//        BorrowBook test = new BorrowBook();
+//        System.out.println("writing to book");
+//        test.borrowBooks(books, students, 5, 3);
+//        test.borrowBooks(books, students, 13, 5);
+//        test.borrowBooks(books, students, 12, 5);
+//        test.borrowBooks(books, students, 11, 6);
+//        System.out.println(test.getBorrowing()); //list all borrowed book
+////        System.out.println(test.getBorrowing().get(0));//get a specific borrowed book
+//        FileWriteAndRead.writeToFile("borrow_list", test.getBorrowing().toString());//store into borrow_list.txt file
+//        
+                    
                 case 11:
                     exit=true;
                     break;
@@ -180,18 +224,7 @@ public class LibrarySystem {
         
         System.out.println("*********only for testing, in case feel confusing with the above and below outputs");
         
-        //---5th function: testing Borrow book function----
 
-//        BorrowBook test = new BorrowBook();
-//        System.out.println("writing to book");
-//        test.borrowBooks(books, students, 5, 3);
-//        test.borrowBooks(books, students, 13, 5);
-//        test.borrowBooks(books, students, 12, 5);
-//        test.borrowBooks(books, students, 11, 6);
-//        System.out.println(test.getBorrowing()); //list all borrowed book
-////        System.out.println(test.getBorrowing().get(0));//get a specific borrowed book
-//        FileWriteAndRead.writeToFile("borrow_list", test.getBorrowing().toString());//store into borrow_list.txt file
-//        
 //        //---6th function: testing waitinglist
 //        BookWaitingList waitingTest = new BookWaitingList(); 
 //        System.out.println(waitingTest.generateWaitingList(test.getBorrowing(), 1));

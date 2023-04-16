@@ -1,8 +1,8 @@
 package BookQueue;
 
 import Books.Books;
-import BorrowingSystem.BookWaitingList;
-import BorrowingSystem.WaitingListFormat;
+import BorrowingSystem.*;
+import Books.WaitingListFormat;
 
 
 public interface BookQueue {

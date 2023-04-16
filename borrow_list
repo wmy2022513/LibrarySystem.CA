@@ -1,133 +1,20 @@
 
 [**********************
 borrow_ID: LIBW2023001
-student_ID: 5
-bookTitle: Best of Everything, The
-book_ID: ac6644b2-9da8-439d-8d43-b27418acbc1e
-borrowDate: 13-04-2023
-dueDate: 20-04-2023
+student_ID: 52
+book ID: 55
+bookTitle: Jean-Luc Cinema Godard
+bCode: 52dd0c42-44ab-4461-8e39-9807778a490c
+borrowDate: 16-04-2023
+dueDate: 23-04-2023
 returnDate: N/A
 , **********************
 borrow_ID: LIBW2023002
-student_ID: 13
-bookTitle: Day of the Beast, The (Día de la Bestia, El)
-book_ID: ca2c0609-3e1d-4bac-a79c-d1ee0f9e7555
-borrowDate: 13-04-2023
-dueDate: 20-04-2023
-returnDate: N/A
-, **********************
-borrow_ID: LIBW2023003
-student_ID: 12
-bookTitle: Day of the Beast, The (Día de la Bestia, El)
-book_ID: ca2c0609-3e1d-4bac-a79c-d1ee0f9e7555
-borrowDate: 13-04-2023
-dueDate: 20-04-2023
-returnDate: N/A
-, **********************
-borrow_ID: LIBW2023004
-student_ID: 11
-bookTitle: Turkish Dance, Ella Lola
-book_ID: d2678f78-1cdc-4113-b335-e6bbf8a95449
-borrowDate: 13-04-2023
-dueDate: 20-04-2023
-returnDate: N/A
-]
-[**********************
-borrow_ID: LIBW2023001
-student_ID: 5
-bookTitle: Best of Everything, The
-book_ID: ac6644b2-9da8-439d-8d43-b27418acbc1e
-borrowDate: 14-04-2023
-dueDate: 21-04-2023
-returnDate: N/A
-, **********************
-borrow_ID: LIBW2023002
-student_ID: 13
-bookTitle: Day of the Beast, The (Día de la Bestia, El)
-book_ID: ca2c0609-3e1d-4bac-a79c-d1ee0f9e7555
-borrowDate: 14-04-2023
-dueDate: 21-04-2023
-returnDate: N/A
-, **********************
-borrow_ID: LIBW2023003
-student_ID: 12
-bookTitle: Day of the Beast, The (Día de la Bestia, El)
-book_ID: ca2c0609-3e1d-4bac-a79c-d1ee0f9e7555
-borrowDate: 14-04-2023
-dueDate: 21-04-2023
-returnDate: N/A
-, **********************
-borrow_ID: LIBW2023004
-student_ID: 11
-bookTitle: Turkish Dance, Ella Lola
-book_ID: d2678f78-1cdc-4113-b335-e6bbf8a95449
-borrowDate: 14-04-2023
-dueDate: 21-04-2023
-returnDate: N/A
-]
-[**********************
-borrow_ID: LIBW2023001
-student_ID: 5
-bookTitle: ParaNorman
-book_ID: 4e49b188-b103-4de7-9961-36a1ad4ce38d
-borrowDate: 14-04-2023
-dueDate: 21-04-2023
-returnDate: N/A
-, **********************
-borrow_ID: LIBW2023002
-student_ID: 13
-bookTitle: Curse of the Pink Panther
-book_ID: 5af334c1-e4ba-4515-8d48-e4cd9f1e3cfc
-borrowDate: 14-04-2023
-dueDate: 21-04-2023
-returnDate: N/A
-, **********************
-borrow_ID: LIBW2023003
-student_ID: 12
-bookTitle: Curse of the Pink Panther
-book_ID: 5af334c1-e4ba-4515-8d48-e4cd9f1e3cfc
-borrowDate: 14-04-2023
-dueDate: 21-04-2023
-returnDate: N/A
-, **********************
-borrow_ID: LIBW2023004
-student_ID: 11
-bookTitle: Son of Paleface
-book_ID: 9f142b6d-8c5c-44e5-8f0f-57656f3ab686
-borrowDate: 14-04-2023
-dueDate: 21-04-2023
-returnDate: N/A
-]
-[**********************
-borrow_ID: LIBW2023001
-student_ID: 5
-bookTitle: ParaNorman
-book_ID: 4e49b188-b103-4de7-9961-36a1ad4ce38d
-borrowDate: 14-04-2023
-dueDate: 21-04-2023
-returnDate: N/A
-, **********************
-borrow_ID: LIBW2023002
-student_ID: 13
-bookTitle: Curse of the Pink Panther
-book_ID: 5af334c1-e4ba-4515-8d48-e4cd9f1e3cfc
-borrowDate: 14-04-2023
-dueDate: 21-04-2023
-returnDate: N/A
-, **********************
-borrow_ID: LIBW2023003
-student_ID: 12
-bookTitle: Curse of the Pink Panther
-book_ID: 5af334c1-e4ba-4515-8d48-e4cd9f1e3cfc
-borrowDate: 14-04-2023
-dueDate: 21-04-2023
-returnDate: N/A
-, **********************
-borrow_ID: LIBW2023004
-student_ID: 11
-bookTitle: Son of Paleface
-book_ID: 9f142b6d-8c5c-44e5-8f0f-57656f3ab686
-borrowDate: 14-04-2023
-dueDate: 21-04-2023
+student_ID: 23
+book ID: 56
+bookTitle: Jacky in the Kingdom of Women
+bCode: 3ec16369-ad1c-48fb-a9d6-20784ae2cd6e
+borrowDate: 16-04-2023
+dueDate: 23-04-2023
 returnDate: N/A
 ]
