@@ -3,16 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package librarysystem;
-import Books.Books;
-import BorrowingSystem.BooksSorting;
-import Books.SearchBooks;
-//import BorrowingSystem.BookWaitingList;
-import BorrowingSystem.BorrowBook;
-import BorrowingSystem.Borrowing;
-import FileWriteAndRead.*;
-import BorrowingSystem.SearchStudents;
-import Books.Students;
-import BorrowingSystem.StudentsSorting;
+import fileWriteAndRead.FileWriteAndRead;
+import entities.Books;
+//import BorrowingSystem.SearchBooks;
+import factories.BorrowBook;
+import entities.Borrowing;
+import factories.Searching;
+import entities.Students;
+import factories.Sorting;
 import inpututils.InputUtils;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +26,9 @@ public class LibrarySystem {
      */
     public static void main(String[] args) {
        
-        SearchBooks searchBooks = new SearchBooks();
-        ArrayList<Books> books = searchBooks.getBooks();
-        SearchStudents searchStudents = new SearchStudents();
-        ArrayList<Students> students = searchStudents.getStudents();
+        Searching search = new Searching();
+        ArrayList<Books> books = search.getBooks();
+        ArrayList<Students> students = search.getStudents();
         BorrowBook borrowBook = new BorrowBook();
         InputUtils myInput = new InputUtils();
                 
@@ -74,13 +71,13 @@ public class LibrarySystem {
                             case 1:
                                 String bookTitleInput = myInput.getUserText("Search books by title\nWhich book would you like to search?");
                                 //Search by book title
-                                System.out.println(searchBooks.linearSearch(books, bookTitleInput, 1));
+                                System.out.println(search.linearSearch(books, bookTitleInput, 1));
                                 //Search Book Title, and shows up information (if Book Title exist)
                                 break;
                             case 2:
                                 String authorFnameInput = myInput.getUserText("Search books by author name\nWhich author name would you like to search? Please only enter first name");
                                 //Search by author name
-                                System.out.println(searchBooks.linearSearch(books,authorFnameInput,2));
+                                System.out.println(search.linearSearch(books,authorFnameInput,2));
                                 break;
                             case 3:
                                 searchBookExit = true;//jump out this switch-case and go back to menu
@@ -92,7 +89,7 @@ public class LibrarySystem {
                     break;
                     //case 2 break
                 case 3:
-                    BooksSorting bs = new BooksSorting();
+                    Sorting bs = new Sorting();
                     //-----2nd function
                     while(!listBooksExit){
                         
@@ -124,12 +121,12 @@ public class LibrarySystem {
                         switch(myInput.getUserInt(1,3)){
                             case 1:
                                 String searchByName = myInput.getUserText("Which student would you like to search? please enter student name.");
-                                String nameLinear = searchStudents.linearSearchStudents(students, searchByName);
+                                String nameLinear = search.linearSearchStudents(students, searchByName);
                                 System.out.println(nameLinear); //search students by name
                                 break;
                             case 2:
                                 int searchById = myInput2.getUserInt("Which student would you like to search? please enter student ID.");
-                                int idBinary = searchStudents.binarySearch(students, searchById);
+                                int idBinary = search.binarySearch(students, searchById);
                                 if(idBinary == -1){
                                     System.out.println("Student not Found");
                                 } else {
@@ -145,7 +142,7 @@ public class LibrarySystem {
                     break;
                 case 5:
                     //-----4th function --
-                    StudentsSorting sSorting = new StudentsSorting();
+                    Sorting sSorting = new Sorting();
                     while(!listStudentExit){
                         System.out.println("Please enter a number to choose List all students by alphabetical name or ID order.");
                         System.out.println("1.list all students by name alphabetical order\n2.list all students by ID alphabetical order\n3.Menu");

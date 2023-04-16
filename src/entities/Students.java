@@ -1,4 +1,4 @@
-package Books;
+package entities;
 
 public class Students {
     

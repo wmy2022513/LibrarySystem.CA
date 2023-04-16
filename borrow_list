@@ -1,10 +1,28 @@
 
 [**********************
-borrow_ID: LIBW2023002
-student_ID: 46
+borrow_ID: LIBW2023001
+student_ID: 12
 book ID: 12
 bookTitle: State Fair
 bCode: c11b25bb-711f-4537-b5d4-cea7b046f42b
+borrowDate: 16-04-2023
+dueDate: 23-04-2023
+returnDate: N/A
+, **********************
+borrow_ID: LIBW2023002
+student_ID: 12
+book ID: 13
+bookTitle: Duck Soup
+bCode: 916c8516-4c29-4146-b295-e02380a4e44f
+borrowDate: 16-04-2023
+dueDate: 23-04-2023
+returnDate: N/A
+, **********************
+borrow_ID: LIBW2023003
+student_ID: 12
+book ID: 14
+bookTitle: Swing
+bCode: f23dfac0-7780-4ff6-b159-3881916d6954
 borrowDate: 16-04-2023
 dueDate: 23-04-2023
 returnDate: N/A

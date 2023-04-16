@@ -1,8 +1,7 @@
-package BookQueue;
+package bookQueue;
 
-import Books.Books;
-import BorrowingSystem.*;
-import Books.WaitingListFormat;
+import entities.Books;
+import entities.WaitingListFormat;
 
 
 public interface BookQueue {

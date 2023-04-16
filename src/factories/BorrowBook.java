@@ -2,12 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package BorrowingSystem;
+package factories;
 
-import Books.WaitingListFormat;
-import BookQueue.myBookQueue;
-import Books.Books;
-import Books.Students;
+import entities.Borrowing;
+import entities.WaitingListFormat;
+import bookQueue.myBookQueue;
+import entities.Books;
+import entities.Students;
 import inpututils.InputUtils;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -89,7 +90,6 @@ public class BorrowBook {
         // use add() method to add the days to the given date  
         cal.add(Calendar.DAY_OF_MONTH, 7);
         String dueForeturn = sdf.format(cal.getTime());  //require to return book in 7 days
-//        System.out.println("Due date: " + dueDate);
 
         int student_ID = students.get(studentId - 1).getId();
         String bookTitle = books.get(bookIndex - 1).getBookTitle();
@@ -106,7 +106,6 @@ public class BorrowBook {
                     String myInput = userInput.getUserText();
                     if(myInput.equalsIgnoreCase("y")){
                         this.generateWaitingList(this.getBorrowing(), i,studentId);
-//                        System.out.println(i);
                         return borrowing;
                         
                     } else {
@@ -118,7 +117,7 @@ public class BorrowBook {
             borrowing.add(new Borrowing(student_ID, bookTitle,bCode, book_ID, borrowDate, dueDate, returnDate));
             System.out.println("Successfully borrowed");
             return borrowing;
-//        }
+
     }
 
     public ArrayList<Borrowing> getBorrowing() {
@@ -139,7 +138,6 @@ public class BorrowBook {
                     
                     System.out.println("Testing:" + borrowing.get(i).getBookTitle());
                     
-//                    if(borrowing.get(i).getWaitingList().isEmpty()){
                         System.out.println("The book has been returned");
                         System.out.println("//////////////////////////////////////////////");
                         
@@ -161,29 +159,22 @@ public class BorrowBook {
     }
 
     public void listAstudentBRbook(ArrayList<Books> books, ArrayList<Students> students, int studentId){
-       
+
+    int foundAtIndex = -1;
+        
         for(int i=0;i<borrowing.size();i++){
             
             if(borrowing.get(i).getStudent_ID() == studentId){
 
                 System.out.println(borrowing.get(i));
-            
+                foundAtIndex =i;
+//                break;
+            }  
+        }
+        if(foundAtIndex >=0){
+
             } else {
-                System.out.println("this student didn't borrow any books");
-            }
-        }   
-    }
-    
-    public void borrowedBook(int studentId) {
-        for (int i = 0; i < borrowing.size(); i++) {
-
-            if (borrowing.get(i).getStudent_ID() == (studentId)) {
-
-                System.out.println("Books is returned" + borrowing.get(i));
-
-            }
+                System.out.println("This student dosen't borrow any books.");
         }
     }
-
-    
 }
