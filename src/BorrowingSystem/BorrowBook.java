@@ -165,8 +165,13 @@ public class BorrowBook {
 
     }
 
-    //For array
-    public void bubbleSort(ArrayList<Students> students) {
+    //For Students
+    /**
+     * This method is gonna sort the students by Id.
+     *
+     * @param students
+     */
+    public void bubbleSortId(ArrayList<Students> students) {
         System.out.println("-----------");
         System.out.println("--Bubble Sort starting--");
 
@@ -177,7 +182,7 @@ public class BorrowBook {
                 if (n > m) {
                     String tmp = students.get(j).toString();//save the value of array[j] in the temp
                     students.set(j, students.get(j + 1));//change the value of array[j] for 
-                    students.set(i + 1, Students.class.cast(tmp));//save the value of temp into array[j+1]
+                    students.set(j + 1, Students.class.cast(tmp));//save the value of temp into array[j+1]
                 }
             }
         }
@@ -186,5 +191,85 @@ public class BorrowBook {
         System.out.println("-----------");
 
     }
+
+    //Sorting For StudentsName
+    public void bubbleSortName(ArrayList<Students> students) {
+        System.out.println("-----------");
+        System.out.println("--Bubble Sort starting--");
+        String a;
+        String b;
+        Students c;
+        Students d;
+
+        for (int i = 0; i < students.size(); i++) {
+            for (int j = 0; j < students.size() - 1; j++) {
+                a = students.get(j).getStudentName();
+                b = students.get(j + 1).getStudentName();
+
+                if (a.compareTo(b) > 0) {
+                    Students tmp = students.get(j);//save the value of array[j] in the temp
+                    students.set(j, students.get(j + 1));//change the value of array[j] for 
+                    students.set(j + 1, tmp);//save the value of temp into array[j+1]
+                }
+            }
+        }
+
+        System.out.println("--Array Sorted--");
+        System.out.println("-----------");
+    }
+    
+    //For Students
+    /**
+     * This method is gonna sort the students by Id.
+     *
+     * @param books
+     */
+    public void bubbleSortBookAuthorName(ArrayList<Books> books) {
+        System.out.println("-----------");
+        System.out.println("--Bubble Sort starting--");
+
+        for (int i = 0; i < books.size(); i++) {
+            for (int j = 0; j < books.size() - 1; j++) {
+                String n = books.get(j).getAuthorName();
+                String m = books.get((j + 1)).getAuthorName();
+                if (n.compareTo(m)>0) {
+                    Books tmp = books.get(j);//save the value of array[j] in the temp
+                    books.set(j, books.get(j + 1));//change the value of array[j] for 
+                    books.set(j + 1, tmp);//save the value of temp into array[j+1]
+                }
+            }
+        }
+
+        System.out.println("--Array Sorted--");
+        System.out.println("-----------");
+
+    }
+
+    //Sorting For StudentsName
+    public void bubbleSortBookName(ArrayList<Books> books) {
+        System.out.println("-----------");
+        System.out.println("--Bubble Sort starting--");
+        String a;
+        String b;
+        Students c;
+        Students d;
+
+        for (int i = 0; i < books.size(); i++) {
+            for (int j = 0; j < books.size() - 1; j++) {
+                a = books.get(j).getBookTitle();
+                b = books.get(j + 1).getBookTitle();
+
+                if (a.compareTo(b) > 0) {
+                    Books tmp = books.get(j);//save the value of array[j] in the temp
+                    books.set(j, books.get(j + 1));//change the value of array[j] for 
+                    books.set(j + 1, tmp);//save the value of temp into array[j+1]
+                }
+            }
+        }
+
+        System.out.println("--Array Sorted--");
+        System.out.println("-----------");
+    }
+
 
 }
