@@ -32,7 +32,7 @@ public class LibrarySystem {
         ArrayList<Books> books = searchBooks.getBooks();
         SearchStudents searchStudents = new SearchStudents();
         ArrayList<Students> students = searchStudents.getStudents();
-        
+        BorrowBook borrowBook = new BorrowBook();
         InputUtils myInput = new InputUtils();
                 
         boolean exit = false;
@@ -41,6 +41,8 @@ public class LibrarySystem {
         boolean searchStudentExit = false;
         boolean listStudentExit = false;
         boolean borrowBookExit = false;
+        boolean returnBookExit = false;
+        boolean specificStExit = false;
         
         while(!exit){
         
@@ -50,16 +52,17 @@ public class LibrarySystem {
             System.out.println("3.List all books by title and/or author name alphabetical order.");
             System.out.println("4.Search for a specific student by name and/or ID.");
             System.out.println("5.List all students by alphabetical name and/or ID order.");
-            System.out.println("6.Register that a student has borrowed a book.");
-            System.out.println("7.If a book is borrowed and another student wants to borrow it, allow the user to add that reader to a\n" +
+            System.out.println("6.Register that a student has borrowed a book,if the book is borrowed and another student wants to borrow it, \nallow the user to add that reader to a\n" +
 "waiting list (queue).");
-            System.out.println("8.Register that a student has returned a book.");
-            System.out.println("9.If a book is returned and has a waiting queue, display to the user the next student waiting for that\n" +
+//            System.out.println("7.display the waitng list");
+            System.out.println("7.Register that a student has returned a book.If a book is returned and has a waiting queue,\ndisplay to the user the next student waiting for that\n" +
 "book.");
-            System.out.println("10.For a specific student, list the books that they have borrowed.");
-            System.out.println("11.exit\n***********************");
+//            System.out.println("8.If a book is returned and has a waiting queue, display to the user the next student waiting for that\n" +
+//"book.");
+            System.out.println("8.For a specific student, list the books that they have borrowed.");
+            System.out.println("9.exit\n***********************");
             //main menu
-            switch(myInput.getUserInt(1, 11)){ //invoke InputUtils.getUserInt method to give user a range of options
+            switch(myInput.getUserInt(1, 9)){ //invoke InputUtils.getUserInt method to give user a range of options
                 case 1:
                     break;
                 case 2:
@@ -164,13 +167,14 @@ public class LibrarySystem {
                     break;
                 case 6:
                     //---5th function: testing Borrow book function----
-                    BorrowBook borrowBook = new BorrowBook();
+                    //BorrowBook borrowBook = new BorrowBook(); placed on the top
                     FileWriteAndRead.clearFile("borrow_list"); //clear file data every time before execute
+                    FileWriteAndRead.clearFile("waiting_list");
                     while(!borrowBookExit){
                         System.out.println("Would you like to borrow a book or print out borrowing list");
-                        System.out.println("1.Borrow a book\n2.Print out borrowing list\n3.Menu");
+                        System.out.println("1.Borrow a book\n2.Print out borrowing list\n3.Display waiting list\n4.Menu");
 
-                        switch(myInput.getUserInt(1,3)){
+                        switch(myInput.getUserInt(1,4)){
                             case 1:
                                 System.out.println("which student wants to borrow a book? Please enter student ID");
                                 int studentId = myInput.getUserInt(1,5000);
@@ -181,55 +185,44 @@ public class LibrarySystem {
                             case 2:
                                 System.out.println(borrowBook.getBorrowing());
                                 break;
-                            case 3:    
+                            case 3:
+                                System.out.println(borrowBook.getAllWaitingList());
+                                break;
+                            case 4:    
                                 borrowBookExit = true;
                                 break;
                         }
                     }
                     //store data to file after finished book register
                     FileWriteAndRead.writeToFile("borrow_list", borrowBook.getBorrowing().toString());//store into borrow_list.txt file
+                    FileWriteAndRead.writeToFile("waiting_list",borrowBook.getAllWaitingList().toString());
                     borrowBookExit = false;
                     break;
-//                case 7:
-//                    BorrowBook bsw = new BorrowBook();
-//                    bsw.generateWaitingList(bsw.getBorrowing(), bookId);
-
-//        BorrowBook test = new BorrowBook();
-//        System.out.println("writing to book");
-//        test.borrowBooks(books, students, 5, 3);
-//        test.borrowBooks(books, students, 13, 5);
-//        test.borrowBooks(books, students, 12, 5);
-//        test.borrowBooks(books, students, 11, 6);
-//        System.out.println(test.getBorrowing()); //list all borrowed book
-////        System.out.println(test.getBorrowing().get(0));//get a specific borrowed book
-//        FileWriteAndRead.writeToFile("borrow_list", test.getBorrowing().toString());//store into borrow_list.txt file
-//        
-                    
-                case 11:
+                case 7:
+                    while(!returnBookExit){
+                        System.out.println("Which book would you like to return?");
+                        int bookId = myInput.getUserInt(1, 500);
+                        borrowBook.removeBook(books, students, bookId);
+                        returnBookExit = true;
+                    }
+                    returnBookExit = false;
+                    break;
+                case 8:
+                    while(!specificStExit){
+                        System.out.println("Which students borrowed record whould you like to search?");
+                        int studentId = myInput.getUserInt(1, 5000);
+                        borrowBook.listAstudentBRbook(books, students, studentId);
+                        specificStExit = true;
+                    }
+                    specificStExit = false;
+                    break;
+                case 9:
                     exit=true;
                     break;
-            
             }
         }
 
 
-
-        
-        System.out.println("*********only for testing, in case feel confusing with the above and below outputs");
-        
-        
-        System.out.println("*********only for testing, in case feel confusing with the above and below outputs");
-        
-        
-        
-        System.out.println("*********only for testing, in case feel confusing with the above and below outputs");
-        
-
-//        //---6th function: testing waitinglist
-//        BookWaitingList waitingTest = new BookWaitingList(); 
-//        System.out.println(waitingTest.generateWaitingList(test.getBorrowing(), 1));
-//        System.out.println(waitingTest.getWaitingList());
-        
     }
     
 }

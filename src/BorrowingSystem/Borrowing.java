@@ -4,6 +4,7 @@
  */
 package BorrowingSystem;
 
+import BookQueue.myBookQueue;
 import java.util.Date;
 
 /**
@@ -20,6 +21,7 @@ public class Borrowing {
     private String borrowDate;
     private String dueDate;
     private String returnDate;
+    private myBookQueue waitingList;
     
     private static int currentBorrowNumber = 2023000;
     
@@ -33,6 +35,7 @@ public class Borrowing {
         this.borrowDate = borrowDate;
         this.dueDate = dueDate;
         this.returnDate = returnDate;
+        this.waitingList = waitingList;
     
     }
     private String generateBorrowID() {
@@ -81,6 +84,18 @@ public class Borrowing {
 
     public static int getCurrentBorrowNumber() {
         return currentBorrowNumber;
+    }
+
+    public int getbCode() {
+        return bCode;
+    }
+
+    public myBookQueue getWaitingList() {
+        return waitingList;
+    }
+
+    public void setWaitingList(myBookQueue waitingList) {
+        this.waitingList = waitingList;
     }
 
 

@@ -45,6 +45,32 @@ public class InputUtils {
        return userInput;
  
     }
+        public String getUserText(){
+        
+        Scanner myKB = new Scanner(System.in);
+        boolean valid = false; //assume not valid
+        String userInput;
+        
+        do{
+           
+//            System.out.println(prompt);
+        
+            userInput = myKB.nextLine().trim(); // get input
+        
+            if (userInput.matches("[a-zA-Z ]+")){
+                //this is valid input
+                valid=true;
+            }
+            else{
+                //not valid text
+                System.out.println("Invalid - enter text only please");
+            }
+            
+         }while (!valid); //keep going until valid input received
+        
+       return userInput;
+ 
+    }
         /**
      * Prompt user to enter an integer within a given range - if invalid keep asking
      * @param prompt the prompt or question to ask user
