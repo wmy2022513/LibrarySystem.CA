@@ -3,17 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package librarysystem;
-import fileWriteAndRead.FileWriteAndRead;
+import fileWriteAndClear.FileWriteAndClear;
 import entities.Books;
-//import BorrowingSystem.SearchBooks;
 import factories.BorrowBook;
-import entities.Borrowing;
 import factories.Searching;
 import entities.Students;
 import factories.Sorting;
 import inpututils.InputUtils;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -28,7 +25,9 @@ public class LibrarySystem {
        
         Searching search = new Searching();
         ArrayList<Books> books = search.getBooks();
+        ArrayList<Books> booksSorted = new ArrayList<>(books);//for sorting demonstration
         ArrayList<Students> students = search.getStudents();
+        ArrayList<Students> studentsSorted = new ArrayList<>(students);//for sorting demonstration
         BorrowBook borrowBook = new BorrowBook();
         InputUtils myInput = new InputUtils();
                 
@@ -98,10 +97,10 @@ public class LibrarySystem {
                         switch(myInput.getUserInt(1,3)){
                             
                             case 1:
-                                System.out.println(bs.bookSorting(books,1)); //sorting by book title
+                                System.out.println(bs.bookSorting(booksSorted,1)); //sorting by book title
                                 break;
                             case 2:
-                                System.out.println(bs.bookSorting(books, 2));//sorting by author
+                                System.out.println(bs.bookSorting(booksSorted, 2));//sorting by author
                                 break;
                             case 3:
                                 listBooksExit = true;
@@ -148,10 +147,10 @@ public class LibrarySystem {
                         System.out.println("1.list all students by name alphabetical order\n2.list all students by ID alphabetical order\n3.Menu");
                         switch(myInput.getUserInt(1,3)){
                             case 1:
-                                System.out.println(sSorting.studentsSorting(students,1)); //list student by alphabetical name order
+                                System.out.println(sSorting.studentsSorting(studentsSorted,1)); //list student by alphabetical name order
                                 break;
                             case 2:
-                                System.out.println(sSorting.studentsSorting(students, 2));//list student by id
+                                System.out.println(sSorting.studentsSorting(studentsSorted, 2));//list student by id
                                 //don't forget to modified this part
                                 break;
                             case 3:
@@ -165,8 +164,9 @@ public class LibrarySystem {
                 case 6:
                     //---5th function: testing Borrow book function----
                     //BorrowBook borrowBook = new BorrowBook(); placed on the top
-                    FileWriteAndRead.clearFile("borrow_list"); //clear file data every time before execute
-                    FileWriteAndRead.clearFile("waiting_list");
+                    
+                    FileWriteAndClear.clearFile("borrow_list"); //clear file data every time before execute
+                    FileWriteAndClear.clearFile("waiting_list");
                     while(!borrowBookExit){
                         System.out.println("Would you like to borrow a book or print out borrowing list");
                         System.out.println("1.Borrow a book\n2.Print out borrowing list\n3.Display waiting list\n4.Menu");
@@ -191,8 +191,8 @@ public class LibrarySystem {
                         }
                     }
                     //store data to file after finished book register
-                    FileWriteAndRead.writeToFile("borrow_list", borrowBook.getBorrowing().toString());//store into borrow_list.txt file
-                    FileWriteAndRead.writeToFile("waiting_list",borrowBook.getAllWaitingList().toString());
+                    FileWriteAndClear.writeToFile("borrow_list", borrowBook.getBorrowing().toString());//store into borrow_list.txt file
+                    FileWriteAndClear.writeToFile("waiting_list",borrowBook.getAllWaitingList().toString());
                     borrowBookExit = false;
                     break;
                 case 7:

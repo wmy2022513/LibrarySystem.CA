@@ -1,7 +1,6 @@
 package bookQueue;
 
 import bookQueue.BookQueue;
-import entities.Books;
 import entities.WaitingListFormat;
 import java.util.ArrayList;
 

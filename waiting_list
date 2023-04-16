@@ -1,6 +1,13 @@
 
 [ WaitingListFormat:
-request_ID:LIBW2023006-BR
+request_ID:LIBW2023004-BR
+student_ID: 13
+bookID: 4
+bookTitle: Vamps
+bCode: 273ddc90-fff0-4e29-a75c-39cb09cfff8e
+requestDate: N/A*********************
+}, WaitingListFormat:
+request_ID:LIBW2023005-BR
 student_ID: 14
 bookID: 5
 bookTitle: Day of the Beast, The (Día de la Bestia, El)
@@ -9,8 +16,8 @@ requestDate: N/A*********************
 }, WaitingListFormat:
 request_ID:LIBW2023007-BR
 student_ID: 14
-bookID: 6
-bookTitle: Turkish Dance, Ella Lola
-bCode: d2678f78-1cdc-4113-b335-e6bbf8a95449
+bookID: 7
+bookTitle: Lust for Love
+bCode: e874c101-7ecb-4d13-a363-0a7f06d4313f
 requestDate: N/A*********************
 },  ]

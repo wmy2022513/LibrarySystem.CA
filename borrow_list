@@ -29,15 +29,6 @@ returnDate: N/A
 , **********************
 borrow_ID: LIBW2023004
 student_ID: 12
-book ID: 10
-bookTitle: Sink the Bismark!
-bCode: 615ff2df-d4fc-4818-8a7c-034b853128a6
-borrowDate: 16-04-2023
-dueDate: 23-04-2023
-returnDate: N/A
-, **********************
-borrow_ID: LIBW2023005
-student_ID: 13
 book ID: 4
 bookTitle: Vamps
 bCode: 273ddc90-fff0-4e29-a75c-39cb09cfff8e
@@ -45,7 +36,7 @@ borrowDate: 16-04-2023
 dueDate: 23-04-2023
 returnDate: N/A
 , **********************
-borrow_ID: LIBW2023006
+borrow_ID: LIBW2023005
 student_ID: 13
 book ID: 5
 bookTitle: Day of the Beast, The (Día de la Bestia, El)
@@ -54,7 +45,7 @@ borrowDate: 16-04-2023
 dueDate: 23-04-2023
 returnDate: N/A
 , **********************
-borrow_ID: LIBW2023007
+borrow_ID: LIBW2023006
 student_ID: 13
 book ID: 6
 bookTitle: Turkish Dance, Ella Lola
@@ -63,8 +54,8 @@ borrowDate: 16-04-2023
 dueDate: 23-04-2023
 returnDate: N/A
 , **********************
-borrow_ID: LIBW2023008
-student_ID: 14
+borrow_ID: LIBW2023007
+student_ID: 13
 book ID: 7
 bookTitle: Lust for Love
 bCode: e874c101-7ecb-4d13-a363-0a7f06d4313f
@@ -72,7 +63,7 @@ borrowDate: 16-04-2023
 dueDate: 23-04-2023
 returnDate: N/A
 , **********************
-borrow_ID: LIBW2023009
+borrow_ID: LIBW2023008
 student_ID: 14
 book ID: 8
 bookTitle: Fitzgerald Family Christmas, The
@@ -81,7 +72,7 @@ borrowDate: 16-04-2023
 dueDate: 23-04-2023
 returnDate: N/A
 , **********************
-borrow_ID: LIBW2023010
+borrow_ID: LIBW2023009
 student_ID: 14
 book ID: 9
 bookTitle: Hellraiser: Deader

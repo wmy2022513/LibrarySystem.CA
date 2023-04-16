@@ -1,6 +1,5 @@
 package bookQueue;
 
-import entities.Books;
 import entities.WaitingListFormat;
 
 
