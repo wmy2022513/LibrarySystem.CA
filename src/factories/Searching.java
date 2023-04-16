@@ -9,7 +9,6 @@ import entities.Students;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -131,7 +130,7 @@ public String linearSearchStudents(ArrayList<Students> array, String targetName)
         String lastName;
         String bookTitle;
         String genre;
-        int i=0;
+        int i=1;
         
         while (contentLine != null) {
                 

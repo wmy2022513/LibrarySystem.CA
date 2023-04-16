@@ -44,11 +44,12 @@ public class BorrowBook {
 
         String request_ID = generateRequestID(borrows, borrowIndex);
         int student_ID = studentId;
+        int bCode = borrows.get(borrowIndex).getbCode();
         String bookTitle = borrows.get(borrowIndex).getBookTitle();
         String book_ID = borrows.get(borrowIndex).getBook_ID();
         String requestDate = borrows.get(borrowIndex).getReturnDate();
 
-        WaitingListFormat addToQueue = new WaitingListFormat(request_ID, student_ID, bookTitle, book_ID, requestDate);
+        WaitingListFormat addToQueue = new WaitingListFormat(request_ID, student_ID, bCode, bookTitle, book_ID, requestDate);
         setData.Enqueue(addToQueue);
 
         borrows.get(borrowIndex).setWaitingList(setData);
@@ -91,9 +92,9 @@ public class BorrowBook {
         cal.add(Calendar.DAY_OF_MONTH, 7);
         String dueForeturn = sdf.format(cal.getTime());  //require to return book in 7 days
 
-        int student_ID = students.get(studentId - 1).getId();
-        String bookTitle = books.get(bookIndex - 1).getBookTitle();
-        int bCode = books.get(bookIndex).getbCode();//bcode already defined start from 1 so don't need to minus one
+        int student_ID = students.get(studentId-1).getId();
+        String bookTitle = books.get(bookIndex-1).getBookTitle();
+        int bCode = books.get(bookIndex-1).getbCode();//bcode already defined start from 1 so don't need to minus one
         String book_ID = books.get(bookIndex-1).getId();
         String borrowDate = currentDate;
         String dueDate = dueForeturn;
@@ -106,9 +107,10 @@ public class BorrowBook {
                     String myInput = userInput.getUserText();
                     if(myInput.equalsIgnoreCase("y")){
                         this.generateWaitingList(this.getBorrowing(), i,studentId);
+                        System.out.println("You've been put into the waiting list successfully");
                         return borrowing;
-                        
                     } else {
+                        System.out.println("You still can apply for be put into waiting list next time");
                         return borrowing;
                     }
                 } 
@@ -128,31 +130,35 @@ public class BorrowBook {
         
         String book_ID = books.get(bookIndex - 1).getId();
         
+        int foundAtIndex = -1;
+        
         if(borrowing.isEmpty()){
             System.out.println("This list is empty");
         }
 
         for (int i = 0; i < borrowing.size(); i++) {
             
-                if(borrowing.get(i).getBook_ID().equals(book_ID)){
-                    
-                    System.out.println("Testing:" + borrowing.get(i).getBookTitle());
-                    
-                        System.out.println("The book has been returned");
-                        System.out.println("//////////////////////////////////////////////");
-                        
-                        if(borrowing.get(i).getWaitingList() != null){
-                            System.out.println("Next student :" + borrowing.get(i).getWaitingList().peek());
-                            System.out.println("Return successfully");
-                            borrowing.remove(i);
-                        } else {
-                            borrowing.remove(i);
-                            System.out.println("Return successfully");
-                        }
+            if(borrowing.get(i).getBook_ID().equals(book_ID)){
+                foundAtIndex=i;
+                System.out.println("Testing:" + borrowing.get(i).getBookTitle());
+                
+                System.out.println("The book has been returned");
+                System.out.println("//////////////////////////////////////////////");
 
+                if(borrowing.get(i).getWaitingList() != null){
+                    System.out.println("Next student :" + borrowing.get(i).getWaitingList().peek());
+                    System.out.println("Return successfully");
+                    borrowing.remove(i);
                 } else {
-                    System.out.println("Book not founded");
+                    borrowing.remove(i);
+                    System.out.println("Return successfully");
                 }
+            } 
+        }
+        if(foundAtIndex >=0){
+        
+        } else {
+            System.out.println("Book not founded");
         }
 
         return -1;
@@ -168,13 +174,13 @@ public class BorrowBook {
 
                 System.out.println(borrowing.get(i));
                 foundAtIndex =i;
-//                break;
+
             }  
         }
         if(foundAtIndex >=0){
 
             } else {
-                System.out.println("This student dosen't borrow any books.");
+                System.out.println("This student doesn't borrow any books.");
         }
     }
 }

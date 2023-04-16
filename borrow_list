@@ -2,27 +2,90 @@
 [**********************
 borrow_ID: LIBW2023001
 student_ID: 12
-book ID: 12
-bookTitle: State Fair
-bCode: c11b25bb-711f-4537-b5d4-cea7b046f42b
+book ID: 1
+bookTitle: Tarzan's Magic Fountain
+bCode: 140a3d7e-a417-4c2b-96fe-32f9a2732693
 borrowDate: 16-04-2023
 dueDate: 23-04-2023
 returnDate: N/A
 , **********************
 borrow_ID: LIBW2023002
 student_ID: 12
-book ID: 13
-bookTitle: Duck Soup
-bCode: 916c8516-4c29-4146-b295-e02380a4e44f
+book ID: 2
+bookTitle: Possession
+bCode: b4eb8f48-2bbb-46bf-b836-017f9372c463
 borrowDate: 16-04-2023
 dueDate: 23-04-2023
 returnDate: N/A
 , **********************
 borrow_ID: LIBW2023003
 student_ID: 12
-book ID: 14
-bookTitle: Swing
-bCode: f23dfac0-7780-4ff6-b159-3881916d6954
+book ID: 3
+bookTitle: Best of Everything, The
+bCode: ac6644b2-9da8-439d-8d43-b27418acbc1e
+borrowDate: 16-04-2023
+dueDate: 23-04-2023
+returnDate: N/A
+, **********************
+borrow_ID: LIBW2023004
+student_ID: 12
+book ID: 10
+bookTitle: Sink the Bismark!
+bCode: 615ff2df-d4fc-4818-8a7c-034b853128a6
+borrowDate: 16-04-2023
+dueDate: 23-04-2023
+returnDate: N/A
+, **********************
+borrow_ID: LIBW2023005
+student_ID: 13
+book ID: 4
+bookTitle: Vamps
+bCode: 273ddc90-fff0-4e29-a75c-39cb09cfff8e
+borrowDate: 16-04-2023
+dueDate: 23-04-2023
+returnDate: N/A
+, **********************
+borrow_ID: LIBW2023006
+student_ID: 13
+book ID: 5
+bookTitle: Day of the Beast, The (Día de la Bestia, El)
+bCode: ca2c0609-3e1d-4bac-a79c-d1ee0f9e7555
+borrowDate: 16-04-2023
+dueDate: 23-04-2023
+returnDate: N/A
+, **********************
+borrow_ID: LIBW2023007
+student_ID: 13
+book ID: 6
+bookTitle: Turkish Dance, Ella Lola
+bCode: d2678f78-1cdc-4113-b335-e6bbf8a95449
+borrowDate: 16-04-2023
+dueDate: 23-04-2023
+returnDate: N/A
+, **********************
+borrow_ID: LIBW2023008
+student_ID: 14
+book ID: 7
+bookTitle: Lust for Love
+bCode: e874c101-7ecb-4d13-a363-0a7f06d4313f
+borrowDate: 16-04-2023
+dueDate: 23-04-2023
+returnDate: N/A
+, **********************
+borrow_ID: LIBW2023009
+student_ID: 14
+book ID: 8
+bookTitle: Fitzgerald Family Christmas, The
+bCode: 2aaf3991-b161-480d-85a0-56663e34e51a
+borrowDate: 16-04-2023
+dueDate: 23-04-2023
+returnDate: N/A
+, **********************
+borrow_ID: LIBW2023010
+student_ID: 14
+book ID: 9
+bookTitle: Hellraiser: Deader
+bCode: 6e91dd83-91de-40d7-b755-e100da72f8db
 borrowDate: 16-04-2023
 dueDate: 23-04-2023
 returnDate: N/A

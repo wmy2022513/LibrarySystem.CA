@@ -122,7 +122,7 @@ public class Sorting {
      */
     public void bubbleSortBookAuthorName(ArrayList<Books> books) {
         System.out.println("-----------");
-        System.out.println("--Bubble Sort for Books--");
+        System.out.println("--Bubble Sort for Book Author name--");
 
         for (int i = 0; i < books.size(); i++) {
             for (int j = 0; j < books.size() - 1; j++) {
@@ -149,11 +149,10 @@ public class Sorting {
      */
     public void bubbleSortBookTitle(ArrayList<Books> books) {
         System.out.println("-----------");
-        System.out.println("--Bubble Sort for Books--");
+        System.out.println("--Bubble Sort for Book Title--");
         String a;
         String b;
-        Students c;
-        Students d;
+
 
         for (int i = 0; i < books.size(); i++) {
             for (int j = 0; j < books.size() - 1; j++) {

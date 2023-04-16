@@ -17,7 +17,7 @@ public class InputUtils {
      * display error and ask again
      * @param prompt -- the prompt or question to ask the user
      * @return - valid user input (text) 
-     * ***NOTE*** This will change in a few weeks!!
+     * 
      */
     public String getUserText(String prompt){
         
@@ -31,7 +31,7 @@ public class InputUtils {
         
             userInput = myKB.nextLine().trim(); // get input
         
-            if (userInput.matches("[a-zA-Z ]+")){
+            if (!userInput.matches("[0-9]+")){ //if input is not integer can be accepted
                 //this is valid input
                 valid=true;
             }
@@ -90,7 +90,7 @@ public class InputUtils {
             try{
                 
                 userInput = myKB.nextInt(); //get a int
-                //add below condition,mainly for rugby club menu
+                //add below condition,mainly for menu
                 if((userInput <minValue) || (userInput >maxValue)){
                     //prompt user , must enter a number in the range
                     System.out.println("The number must be between " + minValue + " and " + maxValue);

@@ -12,14 +12,16 @@ public class WaitingListFormat {
     
     private String request_ID;
     private int student_ID;
+    private int bCode;
     private String bookTitle;
     private String book_ID;
     private String requestDate;
     
-    public WaitingListFormat(String request_ID,int student_ID, String bookTitle, String book_ID, String requestDate){
+    public WaitingListFormat(String request_ID,int student_ID,int bCode, String bookTitle, String book_ID, String requestDate){
         
         this.request_ID = request_ID;
         this.student_ID = student_ID;
+        this.bCode = bCode;
         this.bookTitle = bookTitle;
         this.book_ID = book_ID;
         this.requestDate = requestDate;
@@ -47,7 +49,7 @@ public class WaitingListFormat {
 
     @Override
     public String toString() {
-        return "WaitingListFormat:" + "request_ID=" + request_ID + "\n, student_ID=" + student_ID + "\n, bookTitle=" + bookTitle + "\n, book_ID=" + book_ID + "\n, requestDate=" + requestDate + "*********************\n}";
+        return "WaitingListFormat:\n" + "request_ID:" + request_ID + "\nstudent_ID: " + student_ID +"\nbookID: "+ bCode +"\nbookTitle: " + bookTitle + "\nbCode: " + book_ID + "\nrequestDate: " + requestDate + "*********************\n}";
     }
     
 }
