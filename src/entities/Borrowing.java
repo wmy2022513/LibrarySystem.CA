@@ -8,7 +8,7 @@ import bookQueue.myBookQueue;
 
 
 /**
- *
+ * In this class, below attributes are the details for each book borrowing
  * @author mikeyang
  */
 public class Borrowing {
@@ -40,11 +40,11 @@ public class Borrowing {
     }
     private String generateBorrowID() {
 		
-		//Note -- A more complex ID creation method could be performed here.
-                //give each borrowing a unique ID
-		currentBorrowNumber++;
-                String borrowID = "LIBW" + currentBorrowNumber;
-		return borrowID;
+        //Note -- A more complex ID creation method could be performed here.
+        //give each borrowing a unique ID
+        currentBorrowNumber++;
+        String borrowID = "LIBW" + currentBorrowNumber;
+        return borrowID;
 		
     }
 

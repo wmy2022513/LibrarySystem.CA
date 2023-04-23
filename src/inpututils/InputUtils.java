@@ -45,7 +45,12 @@ public class InputUtils {
        return userInput;
  
     }
-        public String getUserText(){
+    /**
+     * similar to above method, only take out string parameter and user prompt part
+     * the rest is the same
+     * @return 
+     */
+    public String getUserText(){
         
         Scanner myKB = new Scanner(System.in);
         boolean valid = false; //assume not valid
@@ -53,11 +58,9 @@ public class InputUtils {
         
         do{
            
-//            System.out.println(prompt);
-        
             userInput = myKB.nextLine().trim(); // get input
         
-            if (userInput.matches("[a-zA-Z ]+")){
+            if (!userInput.matches("[0-9]+")){
                 //this is valid input
                 valid=true;
             }

@@ -5,7 +5,8 @@
 package entities;
 
 /**
- *
+ * this class is for store the data about to put into myBookQueue
+ * I prefer implement in this way to make the queue more flexible and easier to maintain
  * @author mikeyang
  */
 public class WaitingListFormat {

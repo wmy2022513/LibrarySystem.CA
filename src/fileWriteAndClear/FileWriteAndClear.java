@@ -31,6 +31,11 @@ public class FileWriteAndClear {
             System.out.println("Unable to write to file: " + filename);
         }
     }
+     /**
+      * This method is for clear all data of the pass in parameter
+      * parameter is a string type, it is the file name of the text file
+      * @param filename 
+      */
     public static void clearFile(String filename){ 
         
         try{

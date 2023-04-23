@@ -13,11 +13,16 @@ import java.util.ArrayList;
  * @author mikeyang
  */
 public class Sorting {
+    /**
+     * 
+     * @param books 
+     * @param option option is for menu, make code more readable and more organised
+     * @return sorted ArrayList<Books>, depending on sorted by option(bookTitle or authorName)
+     */
     public ArrayList<Books> bookSorting(ArrayList<Books> books, int option){
         
-        //In order to use Collections.sort, we have to implement Comparator firstly,as below method.
-
-        ArrayList<Books> dummy = new ArrayList<>();// It's only a dummy, return an empty ArrayList, only for reminding user enter wrong number
+        ArrayList<Books> dummy = new ArrayList<>();
+        // It's only a dummy, return an empty ArrayList, only for reminding user enter wrong number
 
         switch(option){
             case 1:
@@ -40,22 +45,28 @@ public class Sorting {
     
         return books;
     }
-        public ArrayList<Students> studentsSorting(ArrayList<Students> students, int option){
-    
-            switch(option){
-                case 1:
-                    bubbleSortName(students);
-                    for (Students s : students) {
-                        System.out.println(s);
-                    }
-                    break;
-                case 2:
-                    bubbleSortId(students);
-                    for (Students s : students) {
-                        System.out.println(s);
-                    }
-                    break;
+    /**
+     * similar to above method, just data type and requirements are different
+     * @param students
+     * @param option
+     * @return sorted ArrayList<Students>
+     */
+    public ArrayList<Students> studentsSorting(ArrayList<Students> students, int option){
+
+        switch(option){
+            case 1:
+                bubbleSortName(students);
+                for (Students s : students) {
+                    System.out.println(s);
                 }
+                break;
+            case 2:
+                bubbleSortId(students);
+                for (Students s : students) {
+                    System.out.println(s);
+                }
+                break;
+            }
 
         return students;
     }

@@ -1,5 +1,11 @@
 package entities;
-
+/**
+ * This class's attributes are for put into the ArrayList<Students>
+ * All students have a student id as well as personal details
+ * Although some students name and information are the same, but id is unique and also the primary key
+ * So they can be regarded as different data
+ * @author mikeyang
+ */
 public class Students {
     
     private int id;

@@ -1,7 +1,11 @@
 package bookQueue;
 
 import entities.WaitingListFormat;
-
+/**
+ * this code based on Aldana's ArrayQueue class
+ * the purpose is to implement custom made bookQueue for this project
+ * @author mikeyang
+ */
 
 public interface BookQueue {
 

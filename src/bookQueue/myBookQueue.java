@@ -1,6 +1,5 @@
 package bookQueue;
 
-import bookQueue.BookQueue;
 import entities.WaitingListFormat;
 import java.util.ArrayList;
 
@@ -10,7 +9,7 @@ import java.util.ArrayList;
  */
 
 /**
- *
+ * Implement by using ArrayList, slightly different to the ArrayQueue we've been implemented in the class
  * @author mikeyang
  */
 public class myBookQueue implements BookQueue{

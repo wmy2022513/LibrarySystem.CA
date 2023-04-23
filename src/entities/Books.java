@@ -5,7 +5,8 @@
 package entities;
 
 /**
- *
+ * the details of each book contained
+ * it can also regarded as a data type, it is used in ArrayList<Books>
  * @author mikeyang
  */
 public class Books {

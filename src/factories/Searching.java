@@ -31,9 +31,9 @@ public class Searching {
         ArrayList<Students> students = new ArrayList<>();
         
         try{
-            
+            //read data from test.txt by using bufferedReader
             BufferedReader br = new BufferedReader(new FileReader("test.txt"));
-            String contentLine = br.readLine();
+            String contentLine = br.readLine(); //read line by line
             
             String[] data;
             int id;
@@ -45,11 +45,11 @@ public class Searching {
             String DOB;
             int eCode;
             
-            while(contentLine != null){
+            while(contentLine != null){ //if contentLine is not empty then keep exevuting
                 
-                data = contentLine.split(",");
-                id = Integer.parseInt(data[0]);
-                fName = data[1];
+                data = contentLine.split(","); //every line's data split into an array by comma
+                id = Integer.parseInt(data[0]);//id is given data index 0, need to use parse because data type is integer
+                fName = data[1];//fName is given data index 1, the rest followed
                 sName = data[2];
                 gender = data[3];
                 country = data[4];
@@ -70,8 +70,6 @@ public class Searching {
     
     public int binarySearch(ArrayList<Students> students, int targetId) {
         
-//        Collections.sort(students);
-        //data already seorted.
         int start = 1;
         int end = students.size() - 1;
         int mid;
@@ -90,6 +88,11 @@ public class Searching {
                 end = mid - 1;
             }
             System.out.println("Searching student id:" + mid + "...");
+        }
+        if(targetId == 1){
+            mid = 0; //the 1st element is at position 0
+            System.out.println("Searching student id:" + mid + "...");
+            return mid;
         }
 
         return -1;
@@ -117,7 +120,7 @@ public String linearSearchStudents(ArrayList<Students> array, String targetName)
         ArrayList<Books> books = new ArrayList<>();
         
         try{
-        BufferedReader br = new BufferedReader(new FileReader("MOCK_DATA.CSV"));
+        BufferedReader br = new BufferedReader(new FileReader("MOCK_DATA.CSV"));//load book data from file
         String dummy = br.readLine(); 
         // it's only a dummy, for hold the first line attributes(id,author_first_name,author_last_name,author_last_name),
         //because we only want to deal with datas.
@@ -157,7 +160,7 @@ public String linearSearchStudents(ArrayList<Students> array, String targetName)
         }
         return books;
     }
-    public String linearSearch(ArrayList<Books> array, String targetName, int option){
+    public String linearSearchBooks(ArrayList<Books> array, String targetName, int option){
         
         switch (option) {
             case 1:
